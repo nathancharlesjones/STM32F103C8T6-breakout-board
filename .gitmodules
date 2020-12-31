@@ -1,0 +1,3 @@
+[submodule "STM32F103C8T6-breakout-board_compact"]
+	path = STM32F103C8T6-breakout-board_compact
+	url = https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact
