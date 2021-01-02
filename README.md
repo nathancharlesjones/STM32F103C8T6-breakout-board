@@ -20,6 +20,22 @@ Using the STM32CubeMX tool, it appears to me that, as of this writing (30 Dec 20
 |Part No.|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|
 |STM32F103C8Tx|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
+|STM32F102C4Tx|
+|STM32F102C6Tx|
+|STM32F102C8Tx|
+|STM32F102CBTx|
+|STM32F103C4Tx|
+|STM32F103C6Tx|
+|STM32F103CBTx|
+|STM32F302C6Tx|
+|STM32F302C8Tx|
+|STM32F302CBTx|
+|STM32F302CCTx|
+|STM32F303CBTx|
+|STM32F303CCTx|
+|STM32F373C8Tx|
+|STM32F373CBTx|
+|STM32F373CCTx|
 
 
 The following MCUs are pin-compatible for the purposes of this breakout board (meaning the power, programming, and clock pins line up), but may map their peripherals to different pins than the STM32F030F4P6. From what I could see, it appears as though the only difference is that these MCUs use a different port for the clock pins than the previous MCUs; they will still work as clock pins, but offer slightly different alternate functions than do the MCUs above. The STM32F030F4P6 is shown in the first row (again) for comparison.
