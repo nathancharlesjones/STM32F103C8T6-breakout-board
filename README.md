@@ -140,32 +140,32 @@ The schematic for this breakout board includes 7 modules or sections:
 - Board may, but is not required to, run a separate power supply voltage and analog reference voltage.
 
 # PCB Silkscreen Text
-> -------POWER-------
-> VDD/AVDD: 2-3.6V. Must be 3.3V if C39097/C387415 are used for Q1/Q2.
-> VUSB: 5V from USB1
-> VIN: 4.8-15V
-> BAT: 1.8-3.6V. Short R2 if unused.
-> **WARNING**: Do NOT power MCU from VDD if EITHER VIN or USB1 are also being used.
-> --------GPIO--------
-> Max current, ea pin: 25 mA
-> Max current, total: 150 mA OUT (minus MCU power, ~7-50 mA) and 150 mA IN (minus MCU power)
-> Bar on pin label=5V tolerant
-> USER LED (LED2) on PA3; Cut trace btwn J8 on BOTTOM of PCB to remove
-> --------BOM-------
-> All parts 0402 unless noted.
-> U1: STM32F103C8T6
-> U2: 2-3.6V regulator, >=150mA / SOT-223
-> J3: Debug Edge connector
-> J4: J-Link connector
-> Q1: 8MHz / 3.2x2.5mm
-> Q2: 32.768kHz / 3.2x2.5mm
-> L1: ferrite bead, 0805 (leave open for AVDD other MCU)
-> C3, C4, C5, C7-C11: 100nF
-> R3, R5: 10k | R8, R9: 150R
-> D1, D2: Shottky / SOD-123
-> LED1, LED2: 0603
-> R1: 1k5     | C6: 1uF
-> C1, C2: 10uF
+> - -------POWER-------
+> - VDD/AVDD: 2-3.6V. Must be 3.3V if C39097/C387415 are used for Q1/Q2.
+> - VUSB: 5V from USB1
+> - VIN: 4.8-15V
+> - BAT: 1.8-3.6V. Short R2 if unused.
+> - **WARNING**: Do NOT power MCU from VDD if EITHER VIN or USB1 are also being used.
+> - --------GPIO--------
+> - Max current, ea pin: 25 mA
+> - Max current, total: 150 mA OUT (minus MCU power, ~7-50 mA) and 150 mA IN (minus MCU power)
+> - Bar on pin label=5V tolerant
+> - USER LED (LED2) on PA3; Cut trace btwn J8 on BOTTOM of PCB to remove
+> - --------BOM-------
+> - All parts 0402 unless noted.
+> - U1: STM32F103C8T6
+> - U2: 2-3.6V regulator, >=150mA / SOT-223
+> - J3: Debug Edge connector
+> - J4: J-Link connector
+> - Q1: 8MHz / 3.2x2.5mm
+> - Q2: 32.768kHz / 3.2x2.5mm
+> - L1: ferrite bead, 0805 (leave open for AVDD other MCU)
+> - C3, C4, C5, C7-C11: 100nF
+> - R3, R5: 10k | R8, R9: 150R
+> - D1, D2: Shottky / SOD-123
+> - LED1, LED2: 0603
+> - R1: 1k5     | C6: 1uF
+> - C1, C2: 10uF
 > - S1: SPST-NO / 5.1mmx5.1mm
 > - R2: 0R      | R4, R6: 0R (R4/6 pull BOOT0/BOOT1 to GND if J6/J7 not used)
 > - FMI: github.com/nathancharlesjones/STM32F103C8T6-breakout-board
