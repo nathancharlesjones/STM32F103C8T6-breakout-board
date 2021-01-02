@@ -33,10 +33,16 @@ Using the STM32CubeMX tool, it appears to me that, as of this writing (30 Dec 20
 |STM32F302CCTx|
 |STM32F303CBTx|
 |STM32F303CCTx|
+
+v Different power pins? v
 |STM32F373C8Tx|
 |STM32F373CBTx|
 |STM32F373CCTx|
 
+JLCPCB STM32 in QFP-48
+- 
+
+VFQFN & QFP36
 
 The following MCUs are pin-compatible for the purposes of this breakout board (meaning the power, programming, and clock pins line up), but may map their peripherals to different pins than the STM32F030F4P6. From what I could see, it appears as though the only difference is that these MCUs use a different port for the clock pins than the previous MCUs; they will still work as clock pins, but offer slightly different alternate functions than do the MCUs above. The STM32F030F4P6 is shown in the first row (again) for comparison.
 
@@ -46,7 +52,7 @@ The following MCUs are pin-compatible for the purposes of this breakout board (m
 |STM32L010F4Px|ARM Cortex-M0+|32-bit|32 MHz|I2C, SPI, UART/USART, IrDA|DMA, POR, PWM, WDT, Brown-out detect/reset|16|16 kB|2 kB|128 bytes|ADC: 7x 12-bit|
 
 # Schematic
-![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/master/STM32F103C8T6_Schematic.png)
+![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/master/Supporting-Documentation/STM32F103C8T6-breakout-board_schematic.png)
 
 The schematic for this breakout board includes 8 modules or sections:
 1. MCU
