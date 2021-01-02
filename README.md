@@ -54,35 +54,40 @@ The following MCUs are pin-compatible for the purposes of this breakout board (m
 # Schematic
 ![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png)
 
-The schematic for this breakout board includes 8 modules or sections:
+The schematic for this breakout board includes 7 modules or sections:
 1. MCU
-   - The MCU itself and the 0.1" pin header to which most of the MCU pins are connected (U1 and J1).
-2. Power 
-   - Power regulator, power filtering capacitors, and an LED indicator (IC1, D1, D2, C1, C2, C3, LED1, and R1).
-   - Only C2 and C3 are technically required for MCU operation. If you decide to only include those two components, don't forget to bridge the pads of D1.
-   - If IC1 is used, D1 and D2 are strongly recommended, though not technically required. D1 and D2 allow for the MCU to be powered from both the VIN_2.4-3.6V and VIN_5-30V pins at the same time without them damaging each other.
+   - The MCU itself and the 0.1" pin headers to which the MCU pins are connected (U1 and J1/J2).
+2. Power & USB
+   - Power: Power regulator, power filtering capacitors, diode protection, LED indicator, and shorting resistor/ferrite bead (U2, D1, D2, C1-C8, LED1, R1, L1/R2).
+   - USB: USB connector and pull-up resistor on USB_DP (USB1 and R1).
+   - VDD is 2-3.6V (or 2.4-3.6V if the ADC is used).
+   - Only C2-C8 and L1 are technically required for MCU operation.
+   - If U2 is used, D1 and D2 are strongly recommended, though not technically required. D1 and D2 allow for the MCU to be powered from both the VIN_4.8-15V pin and USB1 connector at the same time without them damaging each other.
+   - VDD/AVDD can serve as power inputs (if NEITHER VIN_4.8-15V NOR USB1 are used) or as a power output (if EITHER VIN_4.8-15V OR USB1 are used). Do NOT attempt to power the MCU from VDD if EITHER VIN_4.8-15V OR USB1 are used; the output of the voltage regulator (U2) is tied directly to VDD and one power source may back-power the other.
+   - VBAT (1.8-3.6V) provides a battery back-up for the MCU.
+     - If you **DO** intend to use this feature, leave R2 open.
+     - If you **DON'T** intend to use this feature, use a 0 ohm resistor for R2 (or simply short the pads together) to connect VBAT to VDD.
+     - For some of the pin-compatible MCUs (such as the STM32L151 MCU that I first tested this PCB with), "VBAT" becomes "VLCD", which controls the contrast of a connected LCD. See the appropriate datasheet/hardware development guide for further details.
+   - AVDD is the power supply for the MCU's analog circuitry. For the STM32F103C8T6, AVDD should be at the same voltage as VDD. A ferrite bead, L1, connects the two together while providing some protection from high-frequency noise.
+     - For some of the pin-compatibe MCUs, AVDD is allowed to be a different voltage from VDD. If you use one of those MCUs and intend to use a different AVDD, then leave L1 open.
 3. Reset
-   - The reset button and smoothing capacitor (S1 and C8).
-4. BOOT0
-   - Selection pin header, current-limiting resistor, and pull-down resistor (J2, R4, and R5)
-   - BOOT0 selects which part of the MCU's memory is run at start-up (see [AN4325, Getting started with STM32F030xx and STM32F070xx series
- hardware development](https://www.st.com/content/ccc/resource/technical/document/application_note/91/66/2d/8c/f9/b5/47/55/DM00089834.pdf/files/DM00089834.pdf/jcr:content/translations/en.DM00089834.pdf) for more details).
-   - If you **DO** intend to use this feature, leave R5 open.
-   - If you **DON'T** intend to use this feature, use a 0 ohm resistor for R5 (or simply short the pads together) to pull BOOT0 to ground.
-5. External oscillator
-   - Crystal oscillator, load capacitors, and feedback resistor (Y1, C6, C7, and R3)
-   - An external crystal oscillator will have higher accuracy than the internal clock, which improves the accuracy of the internal timers and may be necessary for applications such as high-speed UART.
-6. Analog voltage reference (VDDA)
-   - Diode and power filtering capacitors (D3, C4, and C5)
-   - Useful when you want to run the MCU at a lower voltage than what you want your analog voltage reference to be.
-   - VDDA **MUST BE** higher than or equal to VDD (hence the diode; it ensures VDDA is at least equal to VDD during power-up/power-down).
-   - If you **DON'T** intend to have a separate analog reference voltage, you can leave C4 and C5 off and replace D3 with a 0 ohm resistor (or simply short the pads together). If you do that, be careful not to power the MCU from the VDDA pin in addition to either of the VIN pins. If the power supply voltage on the VIN pins exceeds that of the power supply on the VDDA pin, then the VIN power supply may backpower the VDDA power supply and damage it.
-7. User LED
-   - LED, current-limiting resistor, and option jumper (LED2, R2, and J3)
-   - J3 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO.
-   - To remove LED2 from the circuit, cut the trace between the terminals of J3 on TOP of the PCB (where its marked on the silkscreen).
-   - To reinsert LED2, place a pin header and jumper in J3. The jumper now controls whether LED2 is included in the circuit or not.
-8. J-Link connector (J4)
+   - The reset button and smoothing capacitor (S1 and C9).
+4. BOOT0/BOOT1
+   - Selection pin headers, current-limiting resistors, and pull-down resistors (J6/7, R3/5, and R4/6)
+   - BOOT0/BOOT1 select which part of the MCU's memory is run at start-up (see [AN2586, Getting started with STM32F10xxx hardware development](https://www.st.com/resource/en/application_note/cd00164185-getting-started-with-stm32f10xxx-hardware-development-stmicroelectronics.pdf) for more details).
+   - If you **DO** intend to use this feature, leave R4/6 open.
+   - If you **DON'T** intend to use this feature, use a 0 ohm resistor for R4/6 (or simply short the pads together) to pull BOOT0/BOOT1 to ground.
+5. External oscillators
+   - Crystal oscillators and power capacitors (Q1/2, C10/11)
+   - An external crystal oscillator will have higher accuracy than the internal clock, which improves the accuracy of the internal timers and may be necessary for applications such as high-speed UART, USB, and RTC.
+6. User LED
+   - LED, current-limiting resistor, and option jumper (LED2, R8, and J8)
+   - J8 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO.
+   - To remove LED2 from the circuit, cut the trace between the terminals of J8 on BOTTOM of the PCB (where its marked on the silkscreen).
+   - To reinsert LED2, place a pin header and jumper in J8. The jumper now controls whether LED2 is included in the circuit or not.
+7. J-Link and Debug Edge connectors (J3/4)
+   - J4 is configured to match the pinout of the 10-pin connector on the J-Link Edu Mini.
+   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini. The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN_4.8-15V or USB1 are also used).
 
 ## Minimum components
 - Cost: Approximately $2.60 per board on JLCPCB (in quantities of 10)
@@ -135,26 +140,35 @@ The schematic for this breakout board includes 8 modules or sections:
 - Board may, but is not required to, run a separate power supply voltage and analog reference voltage.
 
 # PCB Silkscreen Text
-> - VIN, 2.4-3.6V: MCU damage may occur if >4V
-> - Max current, ea pin: 25 mA
-> - Mx current, all pins: 80 mA
-> - USER LED on A0 (pin 6); Cut trace btwn J3 on TOP of PCB to remove LED (in-stall jumper to reinsert)
->--------------------
-> - U1: STM32F030F4P6
-> - IC1: 2.4-3.6V regulator, >=100mA / SOT-89-3 (ex: LCSC part# C14289)
-> - Y1: 8MHz resonator / 5x3.2mm (ex: LCSC part# C115962)
-> - J2: J-Link connector (ex: HPH2-A-10-UA from Adam Tech or 3220-10 -0100-00 from CNC Tech)
-> - All footprints other parts 0603 unless noted.
-> - C1: 10uF        | C2: 4.7uF
-> - C3, C8: 100nF   | C4: 1uF
-> - C6, C7: 20pF    | C5: 10nF
-> - R5: 0R (pulls BOOT0 to GND if J2 is not used)
-> - R3: 1k
-> - R1, R2: ~100R   | R4: 10k
-> - S1: SPST-NO / 5.1mmx5.1mm (ex: LCSC part# C318884)
-> - D1, D2: Shottky / SOD-123
-> - D3: Shottky / DO-214AC (short if VDDA = VDD)
-> - FMI: github.com/nathancharlesjones/Embedded-for-Everyone/wiki
+> -------POWER-------
+> VDD/AVDD: 2-3.6V. Must be 3.3V if C39097/C387415 are used for Q1/Q2.
+> VUSB: 5V from USB1
+> VIN: 4.8-15V
+> BAT: 1.8-3.6V. Short R2 if unused.
+> **WARNING**: Do NOT power MCU from VDD if EITHER VIN or USB1 are also being used.
+> --------GPIO--------
+> Max current, ea pin: 25 mA
+> Max current, total: 150 mA OUT (minus MCU power, ~7-50 mA) and 150 mA IN (minus MCU power)
+> Bar on pin label=5V tolerant
+> USER LED (LED2) on PA3; Cut trace btwn J8 on BOTTOM of PCB to remove
+> --------BOM-------
+> All parts 0402 unless noted.
+> U1: STM32F103C8T6
+> U2: 2-3.6V regulator, >=150mA / SOT-223
+> J3: Debug Edge connector
+> J4: J-Link connector
+> Q1: 8MHz / 3.2x2.5mm
+> Q2: 32.768kHz / 3.2x2.5mm
+> L1: ferrite bead, 0805 (leave open for AVDD other MCU)
+> C3, C4, C5, C7-C11: 100nF
+> R3, R5: 10k | R8, R9: 150R
+> D1, D2: Shottky / SOD-123
+> LED1, LED2: 0603
+> R1: 1k5     | C6: 1uF
+> C1, C2: 10uF
+> - S1: SPST-NO / 5.1mmx5.1mm
+> - R2: 0R      | R4, R6: 0R (R4/6 pull BOOT0/BOOT1 to GND if J6/J7 not used)
+> - FMI: github.com/nathancharlesjones/STM32F103C8T6-breakout-board
 
 # References
 - [STM32F030F4 product page](https://www.st.com/content/st_com/en/products/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus/stm32-mainstream-mcus/stm32f0-series/stm32f0x0-value-line/stm32f030f4.html)
