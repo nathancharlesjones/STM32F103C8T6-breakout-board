@@ -52,7 +52,7 @@ The following MCUs are pin-compatible for the purposes of this breakout board (m
 |STM32L010F4Px|ARM Cortex-M0+|32-bit|32 MHz|I2C, SPI, UART/USART, IrDA|DMA, POR, PWM, WDT, Brown-out detect/reset|16|16 kB|2 kB|128 bytes|ADC: 7x 12-bit|
 
 # Schematic
-![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/master/Supporting-Documentation/STM32F103C8T6-breakout-board_schematic.png)
+![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/master/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png)
 
 The schematic for this breakout board includes 8 modules or sections:
 1. MCU
