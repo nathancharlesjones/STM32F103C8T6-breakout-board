@@ -16,11 +16,11 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 
 |Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-|STM32F103C8T6|$6.16|7162|M3|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|N/A|10|0|
-|STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|64 kB|16 kB|N/A|1|1|
-|STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|N/A|9|1|
-|STM32F303CCT6|$2.28<sup>2</sup>|1|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|N/A|15|2|
-|STM32L151C8T6|$1.95|798|M3|32 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|Brown out detect/reset, DMA, I2S, POR, PWM, WDT|37|64 kB|10 kB|4 kB|16|2|
+|STM32F103C8T6|$6.16|7162|M3|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|N/A|ADC: 10x 12-bit|
+|STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|64 kB|16 kB|N/A|ADC: 1x 12-bit, DAC: 1x 12-bit|
+|STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|N/A|ADC: 9x 12-bit, DAC: 1x 12-bit|
+|STM32F303CCT6|$2.28<sup>2</sup>|1|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|N/A|ADC: 15x 12-bit, DAC: 2x 12-bit|
+|STM32L151C8T6|$1.95|798|M3|32 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|Brown out detect/reset, DMA, I2S, POR, PWM, WDT|37|64 kB|10 kB|4 kB|ADC: 16x 12-bit, DAC: 2x 12-bit|
 
 ### Notes
 1. As of 03 Jan 2021
