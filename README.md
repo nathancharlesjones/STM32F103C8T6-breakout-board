@@ -15,7 +15,7 @@
 Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $6.16/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the section below for some additional information). The STM32F103C8T6 is listed first for comparison.
 
 |Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |STM32F103C8T6|$6.16|7162|M3|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|N/A|10|0|
 |STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|64 kB|16 kB|N/A|1|1|
 |STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|N/A|9|1|
