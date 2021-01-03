@@ -52,7 +52,8 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
     - 16 12-bit ADC instead of 10
     - 2 12-bit DACs instead of 0
 
-|Part|Cost<sup>1</sup>|Stock o JLC PCB<sup>1</sup>|Core|Max clock|Flash|RAM|EEPROM|ADC (12b)|DAC (12b)|
+|Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Core|Max clock|Flash|RAM|EEPROM|ADC (12b)|DAC (12b)|
+|---|---|---|---|---|---|---|---|---|---|
 |STM32F103C8T6|$6.16|7162|M3|72 MHz|64 kB|20 kB|N/A|10|0|
 |STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|64 kB|16 kB|N/A|1|1|
 |STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|128 kB|32 kB|N/A|9|1|
