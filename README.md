@@ -12,53 +12,15 @@
 |---|---|---|---|---|---|---|---|---|
 |ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
 
-Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $6.16/unit on JLC PCB. The following MCUs seem to be the next best alternatives, to me (see the section below for some additional information):
-- STM32F302C8Tx
-  - Cost on JLC PCB as of 02 Jan 2021: $2.12/unit (plus a $3.00 flat fee per order for it being an extended part)
-  - None in stock
-  - Notable differences between it and the STM32F103:
-    - Cortex-M4 instead of Cortex-M3
-    - Includes I2S
-    - 16 kB RAM instead of 20 kB
-    - 1 12-bit ADC instead of 10
-    - 2 12-bit DACs instead of 0
-- STM32F302CBTx
-  - Cost on JLC PCB as of 02 Jan 2021: $2.87/unit (plus a $3.00 flat fee per order for it being an extended part)
-  - Notable differences between it and the STM32F103:
-    - Cortex-M4 instead of Cortex-M3
-    - Includes I2S
-    - 128 kB Flash instead of 64 kB
-    - 32 kB RAM instead of 20 kB
-    - 9 12-bit ADC instead of 10
-    - 1 12-bit DACs instead of 0
-- STM32F303CCTx
-  - Cost on JLC PCB as of 02 Jan 2021: $2.28/unit (plus a $3.00 flat fee per order for it being an extended part)
-  - Only 1 in stock
-  - Notable differences between it and the STM32F103:
-    - Cortex-M4 instead of Cortex-M3
-    - Includes I2S
-    - 256 kB Flash instead of 64 kB
-    - 40 kB RAM instead of 20 kB
-    - 15 12-bit ADC instead of 10
-    - 2 12-bit DACs instead of 0
-- STM32L151C8Tx
-  - Cost on JLC PCB as of 02 Jan 2021: $1.95/unit
-  - Notable differences between it and the STM32F103:
-    - Max clock speed 32 MHz instead of 72 MHz
-    - No CANbus
-    - Includes I2S
-    - 10 kB RAM instead of 20 kB
-    - 4 kB EEPROM instead of 0 kB
-    - 16 12-bit ADC instead of 10
-    - 2 12-bit DACs instead of 0
+Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $6.16/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the section below for some additional information). The STM32F103C8T6 is listed first for comparison.
 
-|Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Core|Max clock|Flash|RAM|EEPROM|ADC (12b)|DAC (12b)|
+|Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|
-|STM32F103C8T6|$6.16|7162|M3|72 MHz|64 kB|20 kB|N/A|10|0|
-|STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|64 kB|16 kB|N/A|1|1|
-|STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|128 kB|32 kB|N/A|9|1|
-|STM32F303CCT6|$2.28<sup>2</sup>|1|M4|72 MHz|256 kB|40 kB|N/A|15|2|
-|STM32L151C8T6|$1.95|798|M3|32 MHz|64 kB|10 kB|4 kB|16|2|
+|STM32F103C8T6|$6.16|7162|M3|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|N/A|10|0|
+|STM32F302C8T6|$2.12<sup>2</sup>|0|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|64 kB|16 kB|N/A|1|1|
+|STM32F302CBT6|$2.87<sup>2</sup>|794|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|N/A|9|1|
+|STM32F303CCT6|$2.28<sup>2</sup>|1|M4|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|N/A|15|2|
+|STM32L151C8T6|$1.95|798|M3|32 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|Brown out detect/reset, DMA, I2S, POR, PWM, WDT|37|64 kB|10 kB|4 kB|16|2|
 
 ### Notes
 1. As of 03 Jan 2021
