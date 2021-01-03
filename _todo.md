@@ -61,7 +61,7 @@
 - [x] Add sections and numbers to schematic
 - [x] Finish silkscreen
   - [x] Update component numbers
-  - [ ] Double check URL
+  - [x] Double check URL
 - [x] Change crystals for oscillators
   - [x] Use wider voltage range? -> Nah
 - [x] Add folder for special library parts: AVX, USB
@@ -72,7 +72,13 @@
 - [x] Extend Debug edge indentation? -> Nah
 - [x] Check hardware layout for STM32F302CBT6
   - [x] Other possibilities: STM32L151C8T6, STM32L052C8T6
-- [ ] Update LCSC part number for U1 on schematic
-- [ ] Order
-  - [ ] Include Q2?
+- [x] Update LCSC part number for U1 on schematic
+- [x] Order
+  - [x] Include Q2?
 - [ ] Update README
+  - [ ] Get PCB screenshots
+- [x] Add R4/6 to CPL
+- [x] Check that extra components on CPL are just ignored
+- [x] Reduce CPL files to one
+- [ ] Add Debug Edge README
+- [ ] Fix clearance issue
