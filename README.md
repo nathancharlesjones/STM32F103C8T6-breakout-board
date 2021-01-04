@@ -1,5 +1,7 @@
 # STM32F103C8T6 Breakout Board
-![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/master/STM32F103C8T6_PCB.png)
+<img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" width="300"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" width="300">
+
+<img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" width="300"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" width="300">
 
 # How to order
 1. Download or clone this repository.
@@ -28,7 +30,7 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 
 # Pin-compatible MCUs
 
-**WARNING**: I have not checked each of these parts and cannot guarantee that they will work with this board without modifications. They are listed here merely to bring to the reader's attention that there _may_ be pin-compatible STM32 MCUs which _could_ work with this board in the event that the STM32F103C8T6 is not exactly the MCU they would like to use. If you are interested in using one of these other MCUs, I would recommend that you find the appropriate datasheet and hardware development guide from ST Microelectronics to ensure that this board will meet the requirements of any new MCU.
+**WARNING**: I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 being the one exception (I used the STM32L1 on my first batch of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that it works). They are listed here merely to bring to the reader's attention that there _may_ be pin-compatible STM32 MCUs which _could_ work with this board in the event that the STM32F103C8T6 is not exactly the MCU they would like to use. If you are interested in using one of these other MCUs, I would recommend that you find the appropriate datasheet and hardware development guide from ST Microelectronics to ensure that this board will meet the requirements of any new MCU.
 
 Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 2021), this board is exactly pin-compatible with the 13 MCUs below (the STM32F103C8Tx is shown in the first row for comparison).
 
@@ -49,7 +51,7 @@ Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 20
 |STM32F303CBTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|ADC: 15x 12b; DAC: 2x12b|
 |STM32F303CCTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|ADC: 15x 12b; DAC: 2x12b|
 
-If only the SWD pins are needed (meaning we are not using the external oscillators, JTAG pins, or USB) then the 18 MCUs below are also pin compatible with this breakout board (31 total). To avoid making a long article longer, I'll refrain from enumerating every possibility therein. I would encourage you to use the STM32 pin compatibility tool to find which of these MCUs may work with this development board for your own project (don't forget, initially, to UNselect "Ignore pinning status", "Ignore power pins", and "Ignore system pins" and then click "Search" in order to make sure that you're looking at a list of MCUs which have a very high likelihood of working with this development board).
+If only the SWD pins are needed (meaning we are not using the external oscillators, JTAG pins, or USB) then the 18 MCUs below are also pin compatible with this breakout board (31 total, including the 13 listed above). I would encourage you to use the STM32 pin compatibility tool to find which of these MCUs may work with this development board for your own project (don't forget, initially, to **UNselect** "Ignore pinning status", "Ignore power pins", and "Ignore system pins" and then click "Search" in order to make sure that you're looking at a list of MCUs which have a very high likelihood of working with this development board).
 - STM32F100C4Tx
 - STM32F100C6Tx
 - STM32F100C8Tx
@@ -70,7 +72,7 @@ If only the SWD pins are needed (meaning we are not using the external oscillato
 - STM32F358CCTx
 
 
-Things get even more interesting, however, if we DO select "Ignore power pins". With this selected (and having set "Debug" under "SYS" to "Trace Asynchronous Sw" instead of "JTAG (5 pin)"), we discover that 17 MCUs more than our inital list (30 total) appear to be pin compatible.
+Things get even more interesting, however, if we **DO** select "Ignore power pins". With this selected (and having set "Debug" under "SYS" to "Serial Wire" instead of "JTAG (5 pin)"), we discover that 17 MCUs more than our inital list (30 total, including the initial 13) appear to be pin compatible.
 - STM32F373C8Tx
 - STM32F373CBTx
 - STM32F373CCTx
@@ -91,19 +93,21 @@ Things get even more interesting, however, if we DO select "Ignore power pins". 
 
 To determine if these truly are pin compatible, however, we would need to dive into the datasheets and/or hardware development guides to see where their power pins are and what their requirements are and if our board meets those requirements. For the L151, it appears that the only difference is that pin 1 is "VLCD" instead of "VBAT" and although the function changes, the hardware requirements are roughly the same (an external voltage may or may not be applied to this pin for various purposes and filtering capacitors are either required or recommended). In fact, this MCU was much cheaper on JLC PCB than the STM32F103C8T6 so the L151 is what I chose to populate the breakout board on my first order.
 
+I checked JLC PCB for the price and availability of the above MCUs on 03 Jan 2021; you can download the results [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Pin-compatibility-check/Pin-compatible-comparison.ods).
+
 
 # Schematic
-![](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png)
+<img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="800">
 
 The schematic for this breakout board includes 7 modules or sections:
 1. MCU
    - The MCU itself and the 0.1" pin headers to which the MCU pins are connected (U1 and J1/J2).
 2. Power & USB
    - Power: Power regulator, power filtering capacitors, diode protection, LED indicator, and shorting resistor/ferrite bead (U2, D1, D2, C1-C8, LED1, R7, L1/R2).
-   - USB: USB connector and pull-up resistor on USB_DP (USB1 and R1).
+   - USB: USB connector and pull-up resistor on USB_DP (J5 and R1).
    - Only C2-C8 and L1 are technically required for MCU operation.
-   - If U2 is used, D1 and D2 are strongly recommended, though not technically required. D1 and D2 allow for the MCU to be powered from both the VIN pin and USB1 connector at the same time without them damaging each other.
-   - VDD/AVDD can serve as power inputs (if NEITHER VIN NOR USB1 are used) or as a power output (if EITHER VIN OR USB1 are used). Do NOT attempt to power the MCU from VDD if EITHER VIN OR USB1 are used; the output of the voltage regulator (U2) is tied directly to VDD and one power source may back-power the other if VIN/USB1 is powered at the same as VDD.
+   - If U2 is used, D1 and D2 are strongly recommended, though not technically required. D1 and D2 allow for the MCU to be powered from both the VIN pin and USB connector (J5) at the same time without them damaging each other.
+   - VDD/AVDD can serve as power inputs (if NEITHER VIN NOR USB (J5) are used) or as a power output (if EITHER VIN OR USB (J5) are used). Do NOT attempt to power the MCU from VDD if EITHER VIN OR USB (J5) are used; the output of the voltage regulator (U2) is tied directly to VDD and one power source may back-power the other if VIN/USB (J5) is powered at the same as VDD.
    - VDD is 2-3.6V (or 2.4-3.6V if the ADC is used).
    - VIN is 4.8-15V and goes through D2 to U2.
    - VBAT is 1.8-3.6V and provides a battery back-up for the MCU.
@@ -119,17 +123,18 @@ The schematic for this breakout board includes 7 modules or sections:
    - BOOT0/BOOT1 select which part of the MCU's memory is run at start-up (see [AN2586, Getting started with STM32F10xxx hardware development](https://www.st.com/resource/en/application_note/cd00164185-getting-started-with-stm32f10xxx-hardware-development-stmicroelectronics.pdf) for more details).
    - If you **DO** intend to use this feature, leave R4/6 open.
    - If you **DON'T** intend to use this feature, use a 0 ohm resistor for R4 (or simply short the pads together) to pull BOOT0 to ground. R5/6 need not be populated, since the MCU only looks at BOOT1 if BOOT0 is a logical "1"; otherwise, the BOOT1 pin acts like a normal GPIO.
+   - (R6 was included by virtue of mirroring the schematic for BOOT0, but it's probably not needed, unless someone wants the MCU to permanently boot from "System Memory".)
 5. External oscillators
-   - Crystal oscillators and power capacitors (Q1/2 and C10/11)
+   - Crystal oscillators and power filtering capacitors (Q1/2 and C10/11)
    - An external crystal oscillator will have higher accuracy than the internal clock, which improves the accuracy of the internal timers and may be necessary for applications such as high-speed UART, USB, and RTC.
 6. User LED
    - LED, current-limiting resistor, and option jumper (LED2, R8, and J8)
-   - J8 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO.
+   - J8 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO (as might be the case if you were using this GPIO for another purpose and needed to make sure you weren't exceeding the maximum current in/out on this pin).
    - To remove LED2 from the circuit, cut the trace between the terminals of J8 on BOTTOM of the PCB (where its marked on the silkscreen).
    - To reinsert LED2, place a pin header and jumper in J8. The jumper now controls whether LED2 is included in the circuit or not.
 7. J-Link and Debug Edge connectors (J3/4)
    - J4 is configured to match the pinout of the 10-pin connector on the J-Link Edu Mini.
-   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini. The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB1 are also used).
+   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini. The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
 
 ## Minimum components
 - Cost: Approximately $8.19 per board on JLCPCB (in quantities of 10)
@@ -167,7 +172,7 @@ The schematic for this breakout board includes 7 modules or sections:
    - External oscillator (Q1, C10)
    - Pull-up resistor on USB_DP (R1)
    - Shorting resistor to connect VBAT and VDD (R2)
-- MCU can be powered from VDD (2-3.6V; >=2.4V if ADC is used), VIN (4.8-15V), or from USB1
+- MCU can be powered from VDD (2-3.6V; >=2.4V if ADC is used), VIN (4.8-15V), or from USB (J5)
 - Includes 8 MHz oscillator
 - User doesn't have to short any pads together (accomplished with a 0 ohm resistor, R2)
 - User must populate J6/7 with a pin header and jumper in order to select the proper BOOT0/BOOT1 configuration
@@ -178,7 +183,7 @@ The schematic for this breakout board includes 7 modules or sections:
 - Cost: Approximately $10.01 per board on JLCPCB (in quantities of 10) + ~$0.50 for a USB micro-B connector
   - $5.80 per board to use the STM32L151C8T6 instead of the STM32F103
   - $7.02 per board to use the STM32F302CBT6 instead of the STM32F103
-- Includes all components on the breakout board:
+- Includes all but one of the components on the breakout board:
    - STM32F103C8T6 (U1)
    - Power regulator, power filtering capacitors, blocking diodes, ferrite bead (U2, C1-C8, D1, D2, L1)
    - Reset circuit (C9, S1)
@@ -187,7 +192,7 @@ The schematic for this breakout board includes 7 modules or sections:
    - BOOT0/BOOT1 current-limiting resistors (R3/5)
    - External oscillators (Q1/2, C10/11)
    - Pull-up resistor on USB_DP (R1)
-- MCU can be powered from VDD (2-3.6V; >=2.4V if ADC is used), VIN (4.8-15V), or from USB1
+- MCU can be powered from VDD (2-3.6V; >=2.4V if ADC is used), VIN (4.8-15V), or from USB (J5)
 - Includes 8 MHz and 32.786 kHz oscillators
 - User must populate J6/7 with a pin header and jumper in order to select the proper BOOT0/BOOT1 configuration
 - User must connect battery (1.8-3.6V) to VBAT
@@ -195,10 +200,10 @@ The schematic for this breakout board includes 7 modules or sections:
 # PCB Silkscreen Text
 > - -------POWER-------
 > - VDD/AVDD: 2-3.6V. Must be 3.3V if C39097/C387415 are used for Q1/Q2.
-> - VUSB: 5V from USB1
+> - VUSB: 5V from USB (J5)
 > - VIN: 4.8-15V
 > - BAT: 1.8-3.6V. Short R2 if unused.
-> - **WARNING**: Do NOT power MCU from VDD if EITHER VIN or USB1 are also being used.
+> - **WARNING**: Do NOT power MCU from VDD if EITHER VIN or USB (J5) are also being used.
 > - --------GPIO--------
 > - Max current, ea pin: 25 mA
 > - Max current, total: 150 mA OUT (minus MCU power, ~7-50 mA) and 150 mA IN (minus MCU power)
@@ -210,17 +215,18 @@ The schematic for this breakout board includes 7 modules or sections:
 > - U2: 2-3.6V regulator, >=150mA / SOT-223
 > - J3: Debug Edge connector
 > - J4: J-Link connector
+> - J5: USB micro-B; Amphenol 10118194-0001LF
 > - Q1: 8MHz / 3.2x2.5mm
 > - Q2: 32.768kHz / 3.2x2.5mm
 > - L1: ferrite bead, 0805 (leave open for AVDD other MCU)
 > - C3, C4, C5, C7-C11: 100nF
 > - R3, R5: 10k | R8, R9: 150R
-> - D1, D2: Shottky / SOD-123
-> - LED1, LED2: 0603
 > - R1: 1k5     | C6: 1uF
 > - C1, C2: 10uF
-> - S1: SPST-NO / 5.1mmx5.1mm
-> - R2: 0R      | R4, R6: 0R (R4/6 pull BOOT0/BOOT1 to GND if J6/J7 not used)
+> - D1, D2: Shottky / SOD-123
+> - LED1, LED2: 0603
+> - R2: 0R      | R4: 0R (use R4 in lieu of J6/J7)
+> - S1: SPST-NO / 5.1x5.1mm
 > - FMI: github.com/nathancharlesjones/STM32F103C8T6-breakout-board
 
 # References
