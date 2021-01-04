@@ -97,7 +97,7 @@ I checked JLC PCB for the price and availability of the above MCUs on 03 Jan 202
 
 
 # Schematic
-<img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="800">
+<img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="1000">
 
 The schematic for this breakout board includes 7 modules or sections:
 1. MCU
