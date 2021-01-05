@@ -80,5 +80,7 @@
 - [x] Add R4/6 to CPL
 - [x] Check that extra components on CPL are just ignored
 - [x] Reduce CPL files to one
-- [ ] Add Debug Edge README
+- [x] Add Debug Edge README to 6P repo
+- [ ] Add Debug Edge README to 10P repo
 - [ ] Fix clearance issue
+  - [ ] Update protoboard as well
