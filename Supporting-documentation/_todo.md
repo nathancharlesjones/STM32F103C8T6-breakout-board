@@ -85,10 +85,19 @@
 - [x] Fix clearance issue
   - [x] Update protoboard as well
 - [ ] Test!
+  - [ ] ST-Link
+  - [ ] J-link
+  - [ ] Debug Edge
+  - [ ] Bootloader, J5
+  - [ ] Bootloader, "USB breakout"
+  - [ ] USB serial, J5
+  - [ ] USB serial, "USB breakout"
+  - [ ] VIN
 - [ ] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
-- [ ] Double-check compact board rules and silkscreen text
+- [x] Double-check compact board rules and silkscreen text
 - [ ] Find new 3.3V/5V regulators (higher input voltage)?
 - [ ] Order
-- [ ] Make pinout diagram
+  - [ ] Follow up with JLCPCB about slotted holes
+- [x] Make pinout diagram
 - [ ] Make power configurations diagram

@@ -111,6 +111,7 @@ The schematic for this breakout board includes 7 modules or sections:
 2. Power & USB
    - Power: Power regulator, power filtering capacitors, diode protection, LED indicator, and shorting resistor/ferrite bead (U2, D1, D2, C1-C8, LED1, R7, L1/R2).
    - USB: USB connector and pull-up resistor on USB_DP (J5 and R1).
+     - J5 is a through-hole mini-B USB connector sized to fit part #2172034-1 from TE. Additionally, the 5 pins labeled "USB breakout" match the pinouts of the [micro-B](https://www.adafruit.com/product/1833) and [mini-B](https://www.adafruit.com/product/1764) USB breakout boards from Adafruit (also available on [Digi-Key](https://www.digikey.com/en/products/filter/adapter-breakout-boards/643?WT.z_header=search_go&s=N4IgjCBcoLQBxVAYygMwIYBsDOBTANCAPZQDa4ArAEwIC6AvvYVWSAK7YBGABJwE650AayJsALiAZA)). This fact would be useful either if you strongly desired a micro-B USB connector or if you were disinterested in soldering the mini-B connector. Use extra-long headers on the STM32 breakout if you want to use the USB breakout boards and also still have those pins connected to your breadboard.
    - Only C2-C8 and L1 are technically required for MCU operation.
    - If U2 is used, D1 and D2 are strongly recommended, though not technically required. D1 and D2 allow for the MCU to be powered from both the VIN pin and USB connector (J5) at the same time without them damaging each other.
    - VDD/AVDD can serve as power inputs (if NEITHER VIN NOR USB (J5) are used) or as a power output (if EITHER VIN OR USB (J5) are used). Do NOT attempt to power the MCU from VDD if EITHER VIN OR USB (J5) are used; the output of the voltage regulator (U2) is tied directly to VDD and one power source may back-power the other if VIN/USB (J5) is powered at the same as VDD. The MCU is powered from USB by default whenever a USB cable is plugged in to J5 so you'll need to be careful about removing any external power sources connected to VDD if you're also using the USB peripheral on the MCU.
@@ -122,7 +123,6 @@ The schematic for this breakout board includes 7 modules or sections:
      - For some of the pin-compatible MCUs (such as the STM32L151 MCU that I first tested this PCB with), "VBAT" becomes "VLCD", which controls the contrast of a connected LCD. See the appropriate datasheet/hardware development guide for further details.
    - AVDD is the power supply for the MCU's analog circuitry. For the STM32F103C8T6, AVDD should be at the same voltage as VDD. A ferrite bead, L1, connects the two together while providing some protection for AVDD from high-frequency noise on VDD.
      - For some of the pin-compatibe MCUs, AVDD is allowed to be a different voltage from VDD. If you use one of those MCUs and intend to use a different AVDD, then leave L1 open.
-   - J5 is a through-hole mini-B USB connector sized to fit part #2172034-1 from TE. Additionally, the 5 pins labeled "USB breakout" match the pinouts of the [micro-B](https://www.adafruit.com/product/1833) and [mini-B](https://www.adafruit.com/product/1764) USB breakout boards from Adafruit (also available on [Digi-Key](https://www.digikey.com/en/products/filter/adapter-breakout-boards/643?WT.z_header=search_go&s=N4IgjCBcoLQBxVAYygMwIYBsDOBTANCAPZQDa4ArAEwIC6AvvYVWSAK7YBGABJwE650AayJsALiAZA)). This would be useful either if you strongly desire a micro-B USB connector or if you are disinterested in soldering the mini-B connector. Use extra-long headers on the STM32 breakout if you want to use the USB breakout boards and also still have those pins connected to your breadboard.
 3. Reset
    - The reset button and smoothing capacitor (S1 and C9).
 4. BOOT0/BOOT1
@@ -146,29 +146,35 @@ The schematic for this breakout board includes 7 modules or sections:
 
 # Pinout
 
+The pin labels were limited to 2 characters, so I feel like they ended up being a bit cryptic. Below is a pinout for the breakout board with some additional information for the pins whose function isn't immediately clear.
+
+|Port/Pin #|Name|Label||Label|Name|Port/Pin #|
 |---|---|---|---|---|---|---|
-| | |A4| |A3| | |
-| | |A5| |AV| | |
+|||A4|LEDs / Boot pins|A3|||
+| | |A5| |AV|AVDD| |
 | | |A6| |A2| | |
 | | |A7| |A1| | |
 | | |B0| |A0| | |
 | | |B1| |C13| | |
-| | |B2\*| |BT| | |
-| | |B10\*| |B9\*| | |
-| | |B11\*| |B8\*| | |
-| | |B12\*| |B7\*| | |
-| | |B13\*| |B6\*| | |
-| | |B14\*| |B5| | |
-| | |B15\*| |TR\*| | |
-| | |A8\*| |DI\*| | |
-| | |A9\*| |RS| | |
-| | |A10\*| |SW\*| | |
-| | |VN| |IO\*| | |
-| | |VU| |GD| | |
-| | |D-\*| |CK\*| | |
-| | |D+\*| |VD| | |
+| | |B2<sup>1</sup>| |BT|VBAT| |
+| | |B10<sup>1</sup>| |B9<sup>1</sup>| | |
+| | |B11<sup>1</sup>| |B8<sup>1</sup>| | |
+| | |B12<sup>1</sup>| |B7<sup>1</sup>| | |
+| | |B13<sup>1</sup>| |B6<sup>1</sup>| | |
+| | |B14<sup>1</sup>| |B5| | |
+| | |B15<sup>1</sup>| |TR<sup>1</sup>|JTRST|B4|
+| | |A8<sup>1</sup>| |DI<sup>1</sup>|JTDI|A15|
+| | |A9<sup>1</sup>| |RS|nRST| |
+| | |A10<sup>1</sup>| |SW<sup>1</sup>|SWO|B3|
+| |VIN (4.8-15V)|VN| |IO<sup>1</sup>|SWDIO|A13|
+| |VUSB|VU| |GD| | |
+|A11| |D-<sup>1</sup>| |CK<sup>1</sup>|SWCLK|A14|
+|A12| |D+<sup>1</sup>| |VD|VDD| |
 | | |GD| |N/A| | |
-| | |GD| |N/A| | |
+| | |GD|USB / Debug Edge|N/A| | |
+
+### Notes
+1. 5V tolerant pin
 
 # Suggested Configurations
 
