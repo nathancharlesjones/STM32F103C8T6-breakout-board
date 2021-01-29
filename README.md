@@ -146,6 +146,30 @@ The schematic for this breakout board includes 7 modules or sections:
 
 # Pinout
 
+|---|---|---|---|---|---|---|
+| | |A4| |A3| | |
+| | |A5| |AV| | |
+| | |A6| |A2| | |
+| | |A7| |A1| | |
+| | |B0| |A0| | |
+| | |B1| |C13| | |
+| | |B2\*| |BT| | |
+| | |B10\*| |B9\*| | |
+| | |B11\*| |B8\*| | |
+| | |B12\*| |B7\*| | |
+| | |B13\*| |B6\*| | |
+| | |B14\*| |B5| | |
+| | |B15\*| |TR\*| | |
+| | |A8\*| |DI\*| | |
+| | |A9\*| |RS| | |
+| | |A10\*| |SW\*| | |
+| | |VN| |IO\*| | |
+| | |VU| |GD| | |
+| | |D-\*| |CK\*| | |
+| | |D+\*| |VD| | |
+| | |GD| |N/A| | |
+| | |GD| |N/A| | |
+
 # Suggested Configurations
 
 ## Minimum components
