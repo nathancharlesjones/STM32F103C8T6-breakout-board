@@ -156,25 +156,25 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 | | |A7| |A1| | |
 | | |B0| |A0| | |
 | | |B1| |C13| | |
-| | |B2<sup>1</sup>| |BT|VBAT| |
-| | |B10<sup>1</sup>| |B9<sup>1</sup>| | |
-| | |B11<sup>1</sup>| |B8<sup>1</sup>| | |
-| | |B12<sup>1</sup>| |B7<sup>1</sup>| | |
-| | |B13<sup>1</sup>| |B6<sup>1</sup>| | |
-| | |B14<sup>1</sup>| |B5| | |
-| | |B15<sup>1</sup>| |TR<sup>1</sup>|JTRST|B4|
-| | |A8<sup>1</sup>| |DI<sup>1</sup>|JTDI|A15|
-| | |A9<sup>1</sup>| |RS|nRST| |
-| | |A10<sup>1</sup>| |SW<sup>1</sup>|SWO|B3|
-| |VIN (4.8-15V)|VN| |IO<sup>1</sup>|SWDIO|A13|
+| | |B2\*| |BT|VBAT| |
+| | |B10\*| |B9\*| | |
+| | |B11\*| |B8\*| | |
+| | |B12\*| |B7\*| | |
+| | |B13\*| |B6\*| | |
+| | |B14\*| |B5| | |
+| | |B15\*| |TR\*|JTRST|B4|
+| | |A8\*| |DI\*|JTDI|A15|
+| | |A9\*| |RS|nRST| |
+| | |A10\*| |SW\*|SWO|B3|
+| |VIN (4.8-15V)|VN| |IO\*|SWDIO|A13|
 | |VUSB|VU| |GD| | |
-|A11| |D-<sup>1</sup>| |CK<sup>1</sup>|SWCLK|A14|
-|A12| |D+<sup>1</sup>| |VD|VDD| |
+|A11| |D-\*| |CK\*|SWCLK|A14|
+|A12| |D+\*| |VD|VDD| |
 | | |GD| |N/A| | |
 | | |GD|USB / Debug Edge|N/A| | |
 
 ### Notes
-1. 5V tolerant pin
+\* = 5V tolerant pin
 
 # Suggested Configurations
 
