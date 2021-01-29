@@ -75,12 +75,20 @@
 - [x] Update LCSC part number for U1 on schematic
 - [x] Order
   - [x] Include Q2?
-- [ ] Update README
-  - [ ] Get PCB screenshots
+- [x] Update README
+  - [x] Get PCB screenshots
 - [x] Add R4/6 to CPL
 - [x] Check that extra components on CPL are just ignored
 - [x] Reduce CPL files to one
 - [x] Add Debug Edge README to 6P repo
 - [ ] Add Debug Edge README to 10P repo
-- [ ] Fix clearance issue
-  - [ ] Update protoboard as well
+- [x] Fix clearance issue
+  - [x] Update protoboard as well
+- [ ] Test!
+- [ ] Double-check pin-compatible MCUs (CubeMX lies!!!)
+- [ ] Update protoboard
+- [ ] Double-check compact board rules and silkscreen text
+- [ ] Find new 3.3V/5V regulators (higher input voltage)?
+- [ ] Order
+- [ ] Make pinout diagram
+- [ ] Make power configurations diagram

@@ -7,9 +7,12 @@
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_protoboard/blob/main/protoboard_top.png" width="800">
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_protoboard/blob/main/protoboard_bottom.png" width="800">
 
+# What is it?
+A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB. See below for MCU specifications and a list of other MCUs which are pin-compatible with this breakout board. Using the STM32L151C8T6 MCU instead of the STM32F103C8T6 (see below for a comparison of their specifications), this board can be purchased for as little as $3.98/board in quantities of 10 ($5.11/board + $1 for a USB mini-B connector for a typical application).
+
 # How to order
 1. Download or clone this repository.
-2. Choose which board you'd like to have built. The "compact" version measures 0.85" x 2.25" and is meant to fit in a standard breadboard, giving you 1-2 wells on either side to connect components and/or jumper wires. The "protoboard" version is the exact same layout but includes a prototyping area that resembles a half-size breadboard; it measures 1.9" x 3.9".
+2. Choose which board you'd like to have built. The "compact" version measures 0.85" x 2.25" and is meant to fit in a standard breadboard, giving you 1-2 rows on either side to connect components and/or jumper wires. The "protoboard" version is the exact same layout but includes a prototyping area that resembles a half-size breadboard; it measures 1.9" x 3.9".
 3. Choose which components you want to include on your breakout board. If it's not one of the prepared arrangements below (Minimum, Standard, or Full), edit the bill of materials ("bom") to include only those components that you want. The easiest way to do this is probably to start with the "Everything" list and simply delete the rows of the components you don't want to include.
 4. Follow [these instructions for ordering an assembled PCB from JLCPCB or MakerFabs](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#ordering-an-assembled-pcb).
 
@@ -99,7 +102,6 @@ To determine if these truly are pin compatible, however, we would need to dive i
 
 I checked JLC PCB for the price and availability of the above MCUs on 03 Jan 2021; you can download the results [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Pin-compatibility-check/Pin-compatible-comparison.ods).
 
-
 # Schematic
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="1000">
 
@@ -120,6 +122,7 @@ The schematic for this breakout board includes 7 modules or sections:
      - For some of the pin-compatible MCUs (such as the STM32L151 MCU that I first tested this PCB with), "VBAT" becomes "VLCD", which controls the contrast of a connected LCD. See the appropriate datasheet/hardware development guide for further details.
    - AVDD is the power supply for the MCU's analog circuitry. For the STM32F103C8T6, AVDD should be at the same voltage as VDD. A ferrite bead, L1, connects the two together while providing some protection for AVDD from high-frequency noise on VDD.
      - For some of the pin-compatibe MCUs, AVDD is allowed to be a different voltage from VDD. If you use one of those MCUs and intend to use a different AVDD, then leave L1 open.
+   - J5 is a through-hole mini-B USB connector sized to fit part #2172034-1 from TE. Additionally, the 5 pins labeled "USB breakout" match the pinouts of the [micro-B](https://www.adafruit.com/product/1833) and [mini-B](https://www.adafruit.com/product/1764) USB breakout boards from Adafruit (also available on [Digi-Key](https://www.digikey.com/en/products/filter/adapter-breakout-boards/643?WT.z_header=search_go&s=N4IgjCBcoLQBxVAYygMwIYBsDOBTANCAPZQDa4ArAEwIC6AvvYVWSAK7YBGABJwE650AayJsALiAZA)). This would be useful either if you strongly desire a micro-B USB connector or if you are disinterested in soldering the mini-B connector. Use extra-long headers on the STM32 breakout if you want to use the USB breakout boards and also still have those pins connected to your breadboard.
 3. Reset
    - The reset button and smoothing capacitor (S1 and C9).
 4. BOOT0/BOOT1
@@ -136,9 +139,14 @@ The schematic for this breakout board includes 7 modules or sections:
    - J8 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO (as might be the case if you were using this GPIO for another purpose and needed to make sure you weren't exceeding the maximum current out on this pin).
    - To remove LED2 from the circuit, cut the trace between the terminals of J8 on the BOTTOM of the PCB (where its marked on the silkscreen).
    - To reinsert LED2, place a pin header and jumper in J8. The jumper now controls whether LED2 is included in the circuit or not.
-7. J-Link and Debug Edge connectors (J3/4)
+7. Debug connectors (J3/4 and the 4 pins labeled "ST-Link")
    - J4 is configured to match the pinout of the 10-pin connector on the J-Link Edu Mini.
-   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini. The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
+   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini, which can save ~$0.50/board (not including tax and shipping). The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
+   - The bottom four pins of J2 match the four pins on an ST-Link required to program this MCU. If you want to use these pins and still have them connected to a breadboard, I would recommend soldering extra-long male headers onto these pins (and normal male headers on the rest of J1/2).
+
+# Pinout
+
+# Suggested Configurations
 
 ## Minimum components
 - Cost: Approximately $8.19 per board on JLCPCB (in quantities of 10)
@@ -211,7 +219,7 @@ The schematic for this breakout board includes 7 modules or sections:
 > - --------GPIO--------
 > - Max current, ea pin: 25 mA
 > - Max current, total: 150 mA OUT (minus MCU power, ~7-50 mA) and 150 mA IN (minus MCU power)
-> - Bar on pin label=5V tolerant
+> - \*=5V tolerant
 > - USER LED (LED2) on PA3; Cut trace btwn J8 on BOTTOM of PCB to remove
 > - --------BOM-------
 > - All parts 0402 unless noted.
@@ -219,17 +227,17 @@ The schematic for this breakout board includes 7 modules or sections:
 > - U2: 2-3.6V regulator, >=150mA / SOT-223
 > - J3: Debug Edge connector
 > - J4: J-Link connector
-> - J5: USB micro-B; Amphenol 10118194-0001LF
+> - J5: Mini-B; TE 2172034-1
 > - Q1: 8MHz / 3.2x2.5mm
 > - Q2: 32.768kHz / 3.2x2.5mm
 > - L1: ferrite bead, 0805 (leave open for AVDD other MCU)
 > - C3, C4, C5, C7-C11: 100nF
-> - R3, R5: 10k | R8, R9: 150R
 > - R1: 1k5     | C6: 1uF
 > - C1, C2: 10uF
+> - R3, R5: 10k | R8, R9: 150R
 > - D1, D2: Shottky / SOD-123
 > - LED1, LED2: 0603
-> - R2: 0R      | R4: 0R (use R4 in lieu of J6/J7)
+> - R2, R4: 0R (use R4 in lieu of J6/J7)
 > - S1: SPST-NO / 5.1x5.1mm
 > - FMI: github.com/nathancharlesjones/STM32F103C8T6-breakout-board
 
