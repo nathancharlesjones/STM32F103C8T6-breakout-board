@@ -108,3 +108,5 @@
 - [x] Update bom/cpl files
 - [ ] Add ordering notes (polarity, slot, slotted holes)
 - [ ] Add editing notes (custom part, Layer 46)
+- [ ] Update libraries folder
+- [ ] Add design block
