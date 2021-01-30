@@ -95,10 +95,11 @@
   - [ ] VIN
 - [ ] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
+  - [ ] 
 - [x] Double-check compact board rules and silkscreen text
 - [x] Find new 3.3V/5V regulators (higher input voltage)?
 - [x] Order
   - [x] Follow up with JLCPCB about slotted holes
 - [x] Make pinout diagram
 - [ ] Make power configurations diagram
-- [ ] Update bom/cpl files
+- [x] Update bom/cpl files
