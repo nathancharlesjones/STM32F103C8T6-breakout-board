@@ -170,8 +170,8 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 | |VUSB|VU| |GD| | |
 |A11| |D-\*| |CK\*|SWCLK|A14|
 |A12| |D+\*| |VD|VDD| |
-| | |GD| |N/A| | |
-| | |GD|USB / Debug Edge|N/A| | |
+| | |GD| || | |
+| | |GD|USB / Debug Edge|| | |
 
 ### Notes
 \* = 5V tolerant pin
