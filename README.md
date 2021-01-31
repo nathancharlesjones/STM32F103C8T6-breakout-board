@@ -1,5 +1,23 @@
 # STM32F103C8T6 Breakout Board
 
+# Contents
+
+1. [Breakout board images](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pcb-images)
+2. [What is it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#what-is-it)
+3. [How to order](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-to-order)
+4. [STM32F103C8T6 specifications](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#stm32f103c8t6-specifications)
+5. [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus)
+6. [Schematic](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#schematic)
+7. [Pinout](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pinout)
+8. [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
+   - [Minimum components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum-components)
+   - [Standard components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-components)
+   - [Full components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#full-components)
+9. [PCB Silkscreen Text](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pcb-silkscreen-text)
+10. [References](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#references)
+
+# PCB images
+
 ## Compact
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" height="900"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" height="900">
 

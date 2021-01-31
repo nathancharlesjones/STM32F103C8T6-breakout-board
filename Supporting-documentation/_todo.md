@@ -110,3 +110,5 @@
 - [x] Update libraries folder
 - [x] Add design block
 - [x] Reword the "What is it?" section
+- [ ] Add ToC
+- [ ] Add "0R" to R2 in power section graphic
