@@ -104,9 +104,10 @@
 - [x] Order
   - [x] Follow up with JLCPCB about slotted holes
 - [x] Make pinout diagram
-- [ ] Make power configurations diagram
+- [x] Make power configuration diagram
 - [x] Update bom/cpl files
 - [ ] Add ordering notes (polarity, slot, slotted holes)
 - [ ] Add editing notes (custom part, Layer 46)
 - [x] Update libraries folder
 - [x] Add design block
+- [ ] Reword the "What is it?" section
