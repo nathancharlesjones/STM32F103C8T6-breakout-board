@@ -2,7 +2,7 @@
 
 # Contents
 
-1. [Breakout board images](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pcb-images)
+1. [PCB images](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pcb-images)
 2. [What is it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#what-is-it)
 3. [How to order](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-to-order)
 4. [STM32F103C8T6 specifications](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#stm32f103c8t6-specifications)
@@ -123,7 +123,7 @@ The schematic for this breakout board includes 7 modules or sections:
    - AVDD is the power supply for the MCU's analog circuitry. For the STM32F103C8T6, AVDD should be at the same voltage as VDD. A ferrite bead, L1, connects the two together while providing some protection for AVDD from high-frequency noise on VDD.
      - For some of the pin-compatibe MCUs, AVDD is allowed to be a different voltage from VDD. If you use one of those MCUs and intend to use a different AVDD, then leave L1 open.
    - The graphic below depicts a simplified schematic of the power section for this breakout board. From this I hope it is clear what was stated above: that the MCU can be powered from any of the pins labeled "VD", "VN", and "VU", as well as from the USB connector, J5, and the pins "AV" and "BT" (assuming you're using neither the analog voltage nor the battery back-up and that L1 and R2 are both out-fitted) but it should NEVER be powered from more than one at a time. The only exception to this is that "VN" can be used at the same time as EITHER "VU" or J5 (but not both), since those two connections are the only two that are diode-protected. This allows the MCU to be powered by an external power source and allow someone to connect a USB cable to it at the same time. The "VD", "AV", and "BT" pins may also be used as a power outputs if the system is being powered from another source (and, again, L1 and R2 have been out-fitted).
-   <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_power-section-graphic.jpg" width="1000">
+   <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_power-section-graphic.png" width="1000">
 3. Reset
    - The reset button and smoothing capacitor (S1 and C9).
 4. BOOT0/BOOT1
