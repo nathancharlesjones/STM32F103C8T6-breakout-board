@@ -8,16 +8,14 @@
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_protoboard/blob/main/protoboard_bottom.png" width="800">
 
 # What is it?
-A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB for $2.03-3.85 per board (depending on which components are desired), plus the cost of the MCU and USB connector (if desired). Typical costs for MCUs that are pin-compatible with this breakout board seemed to range from $2-6. See below for MCU specifications and a list of other MCUs which are pin-compatible with this breakout board.
-
-Using the STM32L151C8T6 MCU instead of the STM32F103C8T6 (see below for a comparison of their specifications), this board can be purchased for as little as $3.98/board in quantities of 10 ($5.11/board + $1 for a USB mini-B connector for a typical application).
+A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB. Using the STM32L151C8T6 MCU instead of the STM32F103C8T6 (see below for a comparison of their specifications), this board can be purchased for as little as $3.98/board in quantities of 10 ($5.11/board + $1 for a USB mini-B connector for a typical application).
 
 # How to order
 1. Download or clone this repository.
 2. Choose which board you'd like to have built. The "compact" version measures 0.85" x 2.25" and is meant to fit in a standard breadboard, giving you 1-2 rows on either side to connect components and/or jumper wires. The "protoboard" version is the exact same layout but includes a prototyping area that resembles a half-size breadboard; it measures 1.9" x 3.9".
 3. Choose which components you want to include on your breakout board. If it's not one of the prepared arrangements below (Minimum, Standard, or Full), edit the bill of materials ("bom") to include only those components that you want. The easiest way to do this is probably to start with the "Everything" list and simply delete the rows of the components you don't want to include.
 4. Follow [these instructions for ordering an assembled PCB from JLCPCB or MakerFabs](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#ordering-an-assembled-pcb).
-  - Each time I ordered this board I was asked by the engineers at JLC PCB if the polarities of my components were correct. I'm not sure what they are looking at that seems to indicate to them that they might be incorrect, but the components are, in fact, oriented correctly in the cpl file.
+   - Each time I ordered this board I was asked by the engineers at JLC PCB if the polarities of my components were correct. I'm not sure what they are looking at that seems to indicate to them that they might be incorrect, but the components are, in fact, oriented correctly in the cpl file, as confirmed by assembling and testing the board myself.
 
 # STM32F103C8T6 specifications
 |Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
@@ -40,9 +38,9 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 
 # Pin-compatible MCUs
 
-**WARNING**: I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 being the one exception (I used the STM32L1 on my first batch of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that it works). They are listed here merely to bring to the reader's attention that there _may_ be pin-compatible STM32 MCUs which _could_ work with this board in the event that the STM32F103C8T6 is not exactly the MCU they would like to use. If you are interested in using one of these other MCUs, I would recommend that you find the appropriate datasheet and hardware development guide from ST Microelectronics to ensure that this board will meet the requirements of any new MCU.
+**WARNING**: I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 and STM32F302CBT6 being the two exceptions (I used those two on my first two batches of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that they work). They are listed here merely to bring to the reader's attention that there _may_ be pin-compatible STM32 MCUs which _could_ work with this board in the event that the STM32F103C8T6 is not exactly the MCU they would like to use. If you are interested in using one of these other MCUs, I would recommend that you find the appropriate datasheet and hardware development guide from ST Microelectronics to ensure that this board will meet the requirements of any new MCU.
 
-Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 2021), this board is exactly pin-compatible with the 13 MCUs below (the STM32F103C8Tx is shown in the first row for comparison).
+Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 2021), this board is pin-compatible with the 13 MCUs below (the STM32F103C8Tx is shown in the first row for comparison). I would encourage you to use the STM32 pin compatibility tool to find which of these MCUs may work with this development board for your own project, since you may require specific other peripherals (such as CAN, SPI, I2C, etc) on specific pins that I did not check for. Don't forget, initially, to **UNselect** "Ignore pinning status", "Ignore power pins", and "Ignore system pins" and then click "Search" in order to make sure that you're looking at a list of MCUs which have a higher likelihood of working with this development board.
 
 |Part No.|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|
@@ -61,7 +59,7 @@ Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 20
 |STM32F303CBTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|ADC: 15x 12b; DAC: 2x12b|
 |STM32F303CCTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|ADC: 15x 12b; DAC: 2x12b|
 
-If only the SWD pins are needed (meaning we are not using the external oscillators, JTAG pins, or USB) then the 18 MCUs below are also pin compatible with this breakout board (31 total, including the 13 listed above). I would encourage you to use the STM32 pin compatibility tool to find which of these MCUs may work with this development board for your own project (don't forget, initially, to **UNselect** "Ignore pinning status", "Ignore power pins", and "Ignore system pins" and then click "Search" in order to make sure that you're looking at a list of MCUs which have a higher likelihood of working with this development board).
+If only the SWD pins are needed (meaning we are not using the external oscillators, JTAG pins, or USB) then the 18 MCUs below are also pin compatible with this breakout board (31 total, including the 13 listed above).
 - STM32F100C4Tx
 - STM32F100C6Tx
 - STM32F100C8Tx
@@ -81,29 +79,9 @@ If only the SWD pins are needed (meaning we are not using the external oscillato
 - STM32F328C8Tx
 - STM32F358CCTx
 
+I checked JLC PCB for the price and availability of the 31 MCUs above on 03 Jan 2021; you can download the results [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Pin-compatibility-check/Pin-compatible-comparison.ods).
 
-Things get even more interesting, however, if we **DO** select "Ignore power pins". With this selected (and having set "Debug" under "SYS" to "Serial Wire" instead of "JTAG (5 pin)"), we discover that 17 MCUs more than our inital list (30 total, including the initial 13) appear to be pin compatible.
-- STM32F373C8Tx
-- STM32F373CBTx
-- STM32F373CCTx
-- STM32L151C6Tx
-- STM32L151C8Tx
-- STM32L151CBTx
-- STM32L151C6TxA
-- STM32L151C8TxA
-- STM32L151CBTxA
-- STM32L151CCTx
-- STM32L152C6Tx
-- STM32L152C8Tx
-- STM32L152CBTx
-- STM32L152C6TxA
-- STM32L152C8TxA
-- STM32L152CBTxA
-- STM32L152CCTx
-
-To determine if these truly are pin compatible, however, we would need to dive into the datasheets and/or hardware development guides to see where their power pins are and what their requirements are and if our board meets those requirements. For the L151, it appears that the only difference is that pin 1 is "VLCD" instead of "VBAT" and although the function changes, the hardware requirements are roughly the same (an external voltage may or may not be applied to this pin for various purposes and filtering capacitors are either required or recommended). In fact, this MCU was much cheaper on JLC PCB than the STM32F103C8T6 so the L151 is what I chose to populate the breakout board on my first order.
-
-I checked JLC PCB for the price and availability of the above MCUs on 03 Jan 2021; you can download the results [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Pin-compatibility-check/Pin-compatible-comparison.ods).
+As of the time of this writing, ST has a total of 143 MCUs in its inventory that come in the same package (LQFP48) as the STM32F103C8T6, including the MCUs listed above. Despite what the STM32 pin compatibility tool would lead you to believe, many of them are, in fact, "pin compatible" with this breakout board in some form or fashion. For example, the STM32L151C8T6 is not listed as pin compatible with the STM32F103C8T6 because it has a pin called "VLCD" instead of "VBAT". These two pins perform very different functions but, as luck would have it, have very similar hardware requirements (an external voltage may or may not be applied to this pin for various purposes and filtering capacitors are either required or recommended). In fact, I used that exact MCU on my first batch of boards and they worked without error (as mentioned above). Other MCUs may have GPIO which are unusable (as a result of their overlapping with one of the oscillator or power pins on the STM32F103C8T6) or may be lacking peripherals (such as JTAG or USB). But if the MCU could work in some fashion on this breakout board without any additional components or jumper wires, I considered it "pin compatible". That list of 143 MCUs and my (currently in-progress) notes about their pin-compatibility can be found [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP). Keep in mind that I'm only looking at the respective pinouts to determine if an MCU is "pin compatible". It is often the case that small, critical details can be hidden away in other pieces of documentation such as the hardware development guide or reference manual, so I would strongly recommend that you take my notes as merely a guide and that you take a much closer look at the datasheets and hardware development guides to determine for yourself if an MCU listed will actually work with this breakout board.
 
 # Schematic
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="1000">
@@ -184,7 +162,8 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 # Suggested Configurations
 
 ## Minimum components
-- Cost: Approximately $8.19 per board on JLCPCB (in quantities of 10)
+- Cost: Approximately $2.03 per board on JLCPCB (in quantities of 10) + the cost of the MCU
+  - $8.19 per board to use the STM32F103C8T6
   - $3.98 per board to use the STM32L151C8T6 instead of the STM32F103
   - $5.20 per board to use the STM32F302CBT6 instead of the STM32F103
 - The minimum components required for the MCU to operate plus a reset button, power LED, and user LED.
@@ -205,7 +184,8 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
    - No USB
 
 ## Standard components
-- Cost: Approximately $9.32 per board on JLCPCB (in quantities of 10) + ~$0.50 for a USB micro-B connector
+- Cost: Approximately $3.16 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
+  - $9.32 per board to use the STM32F103C8T6
   - $5.11 per board to use the STM32L151C8T6 instead of the STM32F103
   - $6.33 per board to use the STM32F302CBT6 instead of the STM32F103
 - The components most likely to be needed for a typical application.
@@ -227,7 +207,8 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
    - No battery back-up
 
 ## Full components
-- Cost: Approximately $10.01 per board on JLCPCB (in quantities of 10) + ~$0.50 for a USB micro-B connector
+- Cost: Approximately $3.85 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
+  - $10.01 per board to use the STM32F103C8T6
   - $5.80 per board to use the STM32L151C8T6 instead of the STM32F103
   - $7.02 per board to use the STM32F302CBT6 instead of the STM32F103
 - Includes all but one of the components on the breakout board:

@@ -81,7 +81,6 @@
 - [x] Check that extra components on CPL are just ignored
 - [x] Reduce CPL files to one
 - [x] Add Debug Edge README to 6P repo
-- [ ] Add Debug Edge README to 10P repo
 - [x] Fix clearance issue
   - [x] Update protoboard as well
 - [ ] Test!
@@ -110,4 +109,4 @@
 - [ ] Add editing notes (custom part, Layer 46)
 - [x] Update libraries folder
 - [x] Add design block
-- [ ] Reword the "What is it?" section
+- [x] Reword the "What is it?" section
