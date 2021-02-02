@@ -92,7 +92,7 @@
   - [ ] USB serial, J5
   - [ ] USB serial, "USB breakout"
   - [ ] VIN
-- [ ] Double-check pin-compatible MCUs (CubeMX lies!!!)
+- [xx] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
   - [ ] Add new design block
   - [ ] Move J5/J3
@@ -110,5 +110,8 @@
 - [x] Update libraries folder
 - [x] Add design block
 - [x] Reword the "What is it?" section
-- [ ] Add ToC
-- [ ] Add "0R" to R2 in power section graphic
+- [x] Add ToC
+- [x] Add "0R" to R2 in power section graphic
+- [ ] Change 0402 to tighter 0402
+- [ ] Check if 1.0mm slot will work
+- [ ] Update slot to 1.0mm?

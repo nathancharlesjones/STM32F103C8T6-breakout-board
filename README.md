@@ -56,50 +56,32 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 
 # Pin-compatible MCUs
 
-**WARNING**: I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 and STM32F302CBT6 being the two exceptions (I used those two on my first two batches of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that they work). They are listed here merely to bring to the reader's attention that there _may_ be pin-compatible STM32 MCUs which _could_ work with this board in the event that the STM32F103C8T6 is not exactly the MCU they would like to use. If you are interested in using one of these other MCUs, I would recommend that you find the appropriate datasheet and hardware development guide from ST Microelectronics to ensure that this board will meet the requirements of any new MCU.
+There are a number of other MCUs which are pin-compatible with this breakout board, though, unfortunately, deciding whether or not an MCU is "pin compatible" is trickier than it would seem on the surface. The STM32CubeMX tool will tell you that there are 13 MCUs which are pin-compatible with this breakout board and we can increase that number to 31 if we relax the requirement for the MCU to support external oscillators, JTAG, and USB (see below). However, in my own research, it would seem that while all of these 31 MCUs will absolutely work with this breakout board, a handful of them are not _exactly_ pin-compatible and there are others (as many as 73 more) which are also pin-compatible that weren't included in either list from STM32CubeMX. You can find that list of MCUs and my notes about their pin-compatibility [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP).
 
-Using the STM32CubeMX tool, it appears to me that, as of this writing (02 Jan 2021), this board is pin-compatible with the 13 MCUs below (the STM32F103C8Tx is shown in the first row for comparison). I would encourage you to use the STM32 pin compatibility tool to find which of these MCUs may work with this development board for your own project, since you may require specific other peripherals (such as CAN, SPI, I2C, etc) on specific pins that I did not check for. Don't forget, initially, to **UNselect** "Ignore pinning status", "Ignore power pins", and "Ignore system pins" and then click "Search" in order to make sure that you're looking at a list of MCUs which have a higher likelihood of working with this development board.
+| STM32CubeMX list of pin-compatible MCUs | Add'l pin-compatible MCUs that may not have external oscillators, JTAG, or USB |
+|-----------------------------------------|--------------------------------------------------------------------------------|
+|STM32F102C4Tx                            |STM32F100C4Tx                                                                   |
+|STM32F102C6Tx                            |STM32F100C6Tx                                                                   |
+|STM32F102C8Tx                            |STM32F100C8Tx                                                                   |
+|STM32F102CBTx                            |STM32F100CBTx                                                                   |
+|STM32F103C4Tx                            |STM32F101C4Tx                                                                   |
+|STM32F103C6Tx                            |STM32F101C6Tx                                                                   |
+|STM32F103CBTx                            |STM32F101C8Tx                                                                   |
+|STM32F302C6Tx                            |STM32F101CBTx                                                                   |
+|STM32F302C8Tx                            |STM32F301C6Tx                                                                   |
+|STM32F302CBTx                            |STM32F301C8Tx                                                                   |
+|STM32F302CCTx                            |STM32F303C6Tx                                                                   |
+|STM32F303CBTx                            |STM32F303C8Tx                                                                   |
+|STM32F303CCTx                            |STM32F334C4Tx                                                                   |
+|                                         |STM32F334C6Tx                                                                   |
+|                                         |STM32F334C8Tx                                                                   |
+|                                         |STM32F318C8Tx                                                                   |
+|                                         |STM32F328C8Tx                                                                   |
+|                                         |STM32F358CCTx                                                                   |
 
-|Part No.|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
-|---|---|---|---|---|---|---|---|---|---|
-|STM32F103C8Tx|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
-|STM32F102C4Tx|ARM Cortex-M3|32-bit|48 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|DMA, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|4 kB|ADC: 10x 12b|
-|STM32F102C6Tx|ARM Cortex-M3|32-bit|48 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|DMA, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|32 kB|6 kB|ADC: 10x 12b|
-|STM32F102C8Tx|ARM Cortex-M3|32-bit|48 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|DMA, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|10 kB|ADC: 10x 12b|
-|STM32F102CBTx|ARM Cortex-M3|32-bit|48 MHz|I2C, SPI, UART/USART, USB, IrDA, LINbus|DMA, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|128 kB|16 kB|ADC: 10x 12b|
-|STM32F103C4Tx|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|26|16 kB|6 kB|ADC: 10x 12b|
-|STM32F103C6Tx|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|32 kB|10 kB|ADC: 10x 12b|
-|STM32F103CBTx|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|128 kB|20 kB|ADC: 10x 12b|
-|STM32F302C6Tx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|32 kB|16 kB|ADC: 11x 12b; DAC: 1x12b|
-|STM32F302C8Tx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|64 kB|16 kB|ADC: 1x 12b; DAC: 1x12b|
-|STM32F302CBTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|ADC: 9x 12b; DAC: 1x12b|
-|STM32F302CCTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|ADC: 9x 12b; DAC: 1x12b|
-|STM32F303CBTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|128 kB|32 kB|ADC: 15x 12b; DAC: 2x12b|
-|STM32F303CCTx|ARM Cortex-M4|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, I2S, POR, PWM, WDT|37|256 kB|40 kB|ADC: 15x 12b; DAC: 2x12b|
+[Additional list of 105 total MCUs (including the 31 above) which may be pin-compatible with this breakout board](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP)
 
-If only the SWD pins are needed (meaning we are not using the external oscillators, JTAG pins, or USB) then the 18 MCUs below are also pin compatible with this breakout board (31 total, including the 13 listed above).
-- STM32F100C4Tx
-- STM32F100C6Tx
-- STM32F100C8Tx
-- STM32F100CBTx
-- STM32F101C4Tx
-- STM32F101C6Tx
-- STM32F101C8Tx
-- STM32F101CBTx
-- STM32F301C6Tx
-- STM32F301C8Tx
-- STM32F303C6Tx
-- STM32F303C8Tx
-- STM32F334C4Tx
-- STM32F334C6Tx
-- STM32F334C8Tx
-- STM32F318C8Tx
-- STM32F328C8Tx
-- STM32F358CCTx
-
-I checked JLC PCB for the price and availability of the 31 MCUs above on 03 Jan 2021; you can download the results [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Pin-compatibility-check/Pin-compatible-comparison.ods).
-
-As of the time of this writing, ST has a total of 143 MCUs in its inventory that come in the same package (LQFP48) as the STM32F103C8T6, including the MCUs listed above. Despite what the STM32 pin compatibility tool would lead you to believe, many of them are, in fact, "pin compatible" with this breakout board in some form or fashion. For example, the STM32L151C8T6 is not listed as pin compatible with the STM32F103C8T6 because it has a pin called "VLCD" instead of "VBAT". These two pins perform very different functions but, as luck would have it, have very similar hardware requirements (an external voltage may or may not be applied to this pin for various purposes and filtering capacitors are either required or recommended). In fact, I used that exact MCU on my first batch of boards and they worked without error (as mentioned above). Other MCUs may have GPIO which are unusable (as a result of their overlapping with one of the oscillator or power pins on the STM32F103C8T6) or may be lacking peripherals (such as JTAG or USB). But if the MCU could work in some fashion on this breakout board without any additional components or jumper wires, I considered it "pin compatible". That list of 143 MCUs and my (currently in-progress) notes about their pin-compatibility can be found [here](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP). Keep in mind that I'm only looking at the respective pinouts to determine if an MCU is "pin compatible". It is often the case that small, critical details can be hidden away in other pieces of documentation such as the hardware development guide or reference manual, so I would strongly recommend that you take my notes as merely a guide and that you take a much closer look at the datasheets and hardware development guides to determine for yourself if an MCU listed will actually work with this breakout board.
+Keep in mind that I'm only looking at the respective pinouts to determine if an MCU is "pin compatible". I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 and STM32F302CBT6 being the two exceptions (I used those two on my first two batches of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that they work). It is often the case that small, critical details can be hidden away in other pieces of documentation such as the hardware development guide or reference manual, so I would strongly recommend that you take my notes as merely a guide and that you take a much closer look at the datasheets and hardware development guides to determine for yourself if an MCU listed will actually work with this breakout board. The STM32CubeMX tool can be useful if you don't want to wade through a bunch of datasheets, but it might not tell the full story of which MCUs are or are not pin-compatible.
 
 # Schematic
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_schematic.png" width="1000">
