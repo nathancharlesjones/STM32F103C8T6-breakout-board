@@ -6,7 +6,7 @@
    - [Compact version](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#compact-version)
    - [Protobard version](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#protoboard-version)
    - [STM32F103C8T6 specifications](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#stm32f103c8t6-specifications)
-2. [How do I get it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-to-order)
+2. [How do I get it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-do-i-get-it)
    - [Ordering instructions](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#ordering-instructions)
    - [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
       - [Minimum components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum-components)
