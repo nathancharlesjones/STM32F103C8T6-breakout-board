@@ -49,12 +49,6 @@
   - Add "VUSB"; allows developer to power other parts of their circuit from USB.
 - [x] Change 0R resistors to cut pads? -> Nah, at $0.002/resistor, it's actually easier to put down a 0R resistor than to ask someone to cut a trace
 - [x] Add notch for Debug Edge
-- [ ] Build Debug Edge adapter board
-  - [x] Copy library file into folder
-  - [x] Create schematic PDF
-  - [x] Create gerber
-  - [ ] Submit pull request
-  - [x] Check cutout width
 - [x] Change voltage regulator
 - [x] Change Debug edge pins
 - [x] Add LCSC part numbers to components
@@ -92,7 +86,7 @@
   - [ ] USB serial, J5
   - [ ] USB serial, "USB breakout"
   - [ ] VIN
-- [xx] Double-check pin-compatible MCUs (CubeMX lies!!!)
+- [x] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
   - [ ] Add new design block
   - [ ] Move J5/J3
@@ -106,12 +100,18 @@
 - [x] Make power configuration diagram
 - [x] Update bom/cpl files
 - [ ] Add ordering notes (polarity, slot, slotted holes)
-- [ ] Add editing notes (custom part, Layer 46)
+- [ ] Add editing notes (custom part, Layer 46?)
 - [x] Update libraries folder
 - [x] Add design block
 - [x] Reword the "What is it?" section
 - [x] Add ToC
 - [x] Add "0R" to R2 in power section graphic
-- [ ] Change 0402 to tighter 0402
-- [ ] Check if 1.0mm slot will work
-- [ ] Update slot to 1.0mm?
+- [x] Change 0402 to tighter 0402
+- [x] Check if 1.0mm slot will work
+- [x] Update slot to 1.0mm? -> Not unless I have to. Wiggle room is 0mm under worst-case conditions.
+- [ ] Update things with new gerbers
+  - [ ] Take new screenshots
+  - [ ] Add 1.0mm slot to Debug Edge library
+  - [ ] Update design block
+- [x] Add xls pin compatible list
+- [ ] Check parts with MOQ > 10
