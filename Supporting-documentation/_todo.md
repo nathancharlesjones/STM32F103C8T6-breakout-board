@@ -115,3 +115,22 @@
   - [ ] Update design block
 - [x] Add xls pin compatible list
 - [ ] Check parts with MOQ > 10
+- [ ] Check pin-compatibility
+  - [ ] GD32E230C8T6
+  - [ ] GD32F130C6T6
+  - [ ] GD32E231C8T6
+  - [ ] GD32F130C8T6
+  - [ ] GD32F330C6T6
+  - [ ] GD32F330C8T6
+  - [ ] GD32F330CBT6
+  - [ ] GD32F150C6T6
+  - [ ] GD32F150C8T6
+  - [ ] GD32F350C6T6
+  - [ ] GD32F350C8T6
+  - [ ] GD32E103CBT6
+  - [ ] GD32F101CBT6
+  - [ ] GD32E103C8T6
+  - [ ] GD32F350CBT6
+  - [ ] GD32F190C8T6
+  - [ ] GD32F303CCT6
+  - [ ] GD32F103CBT6
