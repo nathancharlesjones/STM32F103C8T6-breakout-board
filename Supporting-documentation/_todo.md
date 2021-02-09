@@ -124,16 +124,22 @@
 - [ ] Rename spreadsheets
 - [ ] Possible to make spreadsheets viewable in Git?
 - [ ] Check pin-compatibility for:
-  - [ ] NUVOTON	M031LD2AE
-  - [ ] GigaDevice	GD32F130C6T6
-  - [ ] GigaDevice	GD32E231C8T6
-  - [ ] GigaDevice	GD32F130C8T6
-  - [ ] HOLTEK	HT32F52331
-  - [ ] GigaDevice	GD32F330C6T6
-  - [ ] HOLTEK	HT32F52241
-  - [ ] GigaDevice	GD32F330C8T6
-  - [ ] HOLTEK	HT32F52341
-  - [ ] GigaDevice	GD32F330CBT6
-  - [ ] GigaDevice	GD32F150C6T6
-  - [ ] NUVOTON	M054LDN
+  - [x] GD32E230C8T6 ($0.61/unit; Cortex-M23; PF6/7; No BOOT1, No USB, No SWO, No JTAG)
+  - [ ] GD32F130C6T6
+  - [ ] GD32E231C8T6
+  - [ ] GD32F130C8T6
+  - [ ] GD32F330C6T6
+  - [ ] GD32F330C8T6
+  - [ ] GD32F330CBT6
+  - [ ] GD32F150C6T6
+  - [ ] GD32F150C8T6
+  - [ ] GD32F350C6T6
+  - [ ] GD32F350C8T6
+  - [ ] GD32E103CBT6
+  - [ ] GD32F101CBT6
+  - [ ] GD32E103C8T6
+  - [ ] GD32F350CBT6
+  - [ ] GD32F190C8T6
+  - [ ] GD32F303CCT6
+  - [ ] GD32F103CBT6
 - [ ] Add note about pin-compatibility with GD32E230C8T6 ($0.61/unit; Cortex-M23; PF6/7; No BOOT1, No USB, No SWO, No JTAG)
