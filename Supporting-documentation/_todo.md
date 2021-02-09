@@ -99,7 +99,7 @@
 - [x] Make pinout diagram
 - [x] Make power configuration diagram
 - [x] Update bom/cpl files
-- [ ] Add ordering notes (polarity, slot, slotted holes)
+- [x] Add ordering notes (polarity, slot, slotted holes)
 - [ ] Add editing notes (custom part, Layer 46?)
 - [x] Update libraries folder
 - [x] Add design block
@@ -113,5 +113,27 @@
   - [ ] Take new screenshots
   - [ ] Add 1.0mm slot to Debug Edge library
   - [ ] Update design block
+  - [ ] Update schematic image
 - [x] Add xls pin compatible list
-- [ ] Check parts with MOQ > 10
+- [x] Check parts with MOQ > 10
+- [x] Add notes to JLCPCB pin compatible list
+- [ ] Update list of recommended alternatives
+- [ ] Edit pin compatible section (should say: here are the pin compatible MCUs that are available on JLC PCB, add $2 to the Qty:10 price to get the cost per board for a minimum configuration, etc)
+- [ ] Add pictures of assembled board with extra-long headers and USB breakout
+- [x] Update prices (MCUs, assembly)
+- [ ] Rename spreadsheets
+- [ ] Possible to make spreadsheets viewable in Git?
+- [ ] Check pin-compatibility for:
+  - [ ] NUVOTON	M031LD2AE
+  - [ ] GigaDevice	GD32F130C6T6
+  - [ ] GigaDevice	GD32E231C8T6
+  - [ ] GigaDevice	GD32F130C8T6
+  - [ ] HOLTEK	HT32F52331
+  - [ ] GigaDevice	GD32F330C6T6
+  - [ ] HOLTEK	HT32F52241
+  - [ ] GigaDevice	GD32F330C8T6
+  - [ ] HOLTEK	HT32F52341
+  - [ ] GigaDevice	GD32F330CBT6
+  - [ ] GigaDevice	GD32F150C6T6
+  - [ ] NUVOTON	M054LDN
+- [ ] Add note about pin-compatibility with GD32E230C8T6 ($0.61/unit; Cortex-M23; PF6/7; No BOOT1, No USB, No SWO, No JTAG)

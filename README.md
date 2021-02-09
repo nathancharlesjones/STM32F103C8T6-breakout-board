@@ -23,7 +23,7 @@
 # PCB images
 
 # What is it?
-A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB. Using the STM32L151C8T6 MCU instead of the STM32F103C8T6 (see below for a comparison of their specifications), this board can be purchased for as little as $3.98/board in quantities of 10 ($5.11/board + $1 for a USB mini-B connector for a typical application).
+A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB. Using the STM32F031C6 MCU instead of the STM32F103C8 (see below for a comparison of their specifications), this board can be purchased for as little as $3.32/board in quantities of 10 ($4.49/board + $1 for a USB mini-B connector for a typical application).
 
 ## Compact version
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" height="900"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" height="900">
@@ -37,7 +37,7 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 |---|---|---|---|---|---|---|---|---|
 |ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
 
-Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $6.16/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) section below for some additional information). The STM32F103C8T6 is listed first for comparison.
+Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $5.62/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) section below for some additional information). The STM32F103C8T6 is listed first for comparison.
 
 |Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Processor|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|EEPROM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -66,10 +66,10 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 ## Suggested configurations
 
 ### Minimum components
-- Cost: Approximately $2.03 per board on JLCPCB (in quantities of 10) + the cost of the MCU
-  - $8.19 per board to use the STM32F103C8T6
-  - $3.98 per board to use the STM32L151C8T6 instead of the STM32F103
-  - $5.20 per board to use the STM32F302CBT6 instead of the STM32F103
+- Cost: Approximately $2.04 per board on JLCPCB (in quantities of 10) + the cost of the MCU
+  - $7.66 per board to use the STM32F103C8T6
+  - $3.32 per board to use the STM32F031C6TR instead of the STM32F103
+  - $5.34 per board to use the STM32F302CBT6 instead of the STM32F103
 - The minimum components required for the MCU to operate plus a reset button, power LED, and user LED.
 - Includes:
    - STM32F103C8T6 (U1)
@@ -88,10 +88,10 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
    - No USB
 
 ### Standard components
-- Cost: Approximately $3.16 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
-  - $9.32 per board to use the STM32F103C8T6
-  - $5.11 per board to use the STM32L151C8T6 instead of the STM32F103
-  - $6.33 per board to use the STM32F302CBT6 instead of the STM32F103
+- Cost: Approximately $3.22 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
+  - $8.84 per board to use the STM32F103C8T6
+  - $4.49 per board to use the STM32F031C6TR instead of the STM32F103
+  - $6.52 per board to use the STM32F302CBT6 instead of the STM32F103
 - The components most likely to be needed for a typical application.
 - Includes:
    - STM32F103C8T6 (U1)
@@ -111,10 +111,10 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
    - No battery back-up
 
 ### Full components
-- Cost: Approximately $3.85 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
-  - $10.01 per board to use the STM32F103C8T6
-  - $5.80 per board to use the STM32L151C8T6 instead of the STM32F103
-  - $7.02 per board to use the STM32F302CBT6 instead of the STM32F103
+- Cost: Approximately $3.99 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
+  - $9.61 per board to use the STM32F103C8T6
+  - $5.26 per board to use the STM32L151C8T6 instead of the STM32F103
+  - $7.29 per board to use the STM32F302CBT6 instead of the STM32F103
 - Includes all but one of the components on the breakout board:
    - STM32F103C8T6 (U1)
    - Power regulator, power filtering capacitors, blocking diodes, ferrite bead (U2, C1-C8, D1, D2, L1)
@@ -156,7 +156,7 @@ There are a number of other MCUs which are pin-compatible with this breakout boa
 
 [Additional list of 105 total MCUs (including the 31 above) which may be pin-compatible with this breakout board](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP)
 
-I also took the above list and added price and stock information for the ones that are actually available in JLC PCB's inventory. As of the time of this writing (03 Feb 2021), there are [16 MCUs on JLC PCB which may be pin-compatible with this breakout board that also have minimum order quantities of 10 or less and have more than 5 in stock](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP).
+I also took the above list and added price and stock information for the ones that are actually available in JLC PCB's inventory. As of the time of this writing (03 Feb 2021), there are [14 MCUs on JLC PCB with at least 5 units in stock which may be pin-compatible with this breakout board](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP).
 
 Keep in mind that I'm only looking at the respective pinouts to determine if an MCU is "pin compatible". I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the STM32L151C8T6 and STM32F302CBT6 being the two exceptions (I used those two on my first two batches of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that they work). It is often the case that small, critical details can be hidden away in other pieces of documentation such as the hardware development guide or reference manual, so I would strongly recommend that you take my notes as merely a guide and that you take a much closer look at the datasheets and hardware development guides to determine for yourself if an MCU listed will actually work with this breakout board. The STM32CubeMX tool can be useful if you don't want to wade through a bunch of datasheets, but it might not tell the full story of which MCUs are or are not pin-compatible.
 
@@ -167,7 +167,7 @@ Keep in mind that I'm only looking at the respective pinouts to determine if an 
 
 The schematic for this breakout board includes 7 modules or sections:
 1. MCU
-   - The MCU itself and the 0.1" pin headers to which the MCU pins are connected (U1 and J1/J2).
+   - The MCU itself and the 0.1" pin headers to which the MCU pins are connected (U1 and J1/J2/J9).
 2. Power & USB
    - Power: Power regulator, power filtering capacitors, diode protection, LED indicator, and shorting resistor/ferrite bead (U2, D1, D2, C1-C8, LED1, R7, L1/R2).
    - USB: USB connector and pull-up resistor on USB_DP (J5 and R1).
@@ -183,7 +183,7 @@ The schematic for this breakout board includes 7 modules or sections:
      - For some of the pin-compatible MCUs (such as the STM32L151 MCU that I first tested this PCB with), "VBAT" becomes "VLCD", which controls the contrast of a connected LCD. See the appropriate datasheet/hardware development guide for further details.
    - AVDD is the power supply for the MCU's analog circuitry. For the STM32F103C8T6, AVDD should be at the same voltage as VDD. A ferrite bead, L1, connects the two together while providing some protection for AVDD from high-frequency noise on VDD.
      - For some of the pin-compatibe MCUs, AVDD is allowed to be a different voltage from VDD. If you use one of those MCUs and intend to use a different AVDD, then leave L1 open.
-   - The graphic below depicts a simplified schematic of the power section for this breakout board. From this I hope it is clear what was stated above: that the MCU can be powered from any of the pins labeled "VD", "VN", and "VU", as well as from the USB connector, J5, and the pins "AV" and "BT" (assuming you're using neither the analog voltage nor the battery back-up and that L1 and R2 are both out-fitted) but it should NEVER be powered from more than one at a time. The only exception to this is that "VN" can be used at the same time as EITHER "VU" or J5 (but not both), since those two connections are the only two that are diode-protected. This allows the MCU to be powered by an external power source and allow someone to connect a USB cable to it at the same time. The "VD", "AV", and "BT" pins may also be used as a power outputs if the system is being powered from another source (and, again, L1 and R2 have been out-fitted).
+   - The graphic below depicts a simplified schematic of the power section for this breakout board. From this I hope it is clear what was stated above: that the MCU can be powered from any of the pins labeled "VD", "VN", and "VU", as well as from the USB connector, J5, and the pins "AV" and "BT" (assuming you're using neither the analog voltage nor the battery back-up and that L1 and R2 are both out-fitted) but it should NEVER be powered from more than one at a time. The only exception to this is that "VN" can be used at the same time as EITHER "VU" or J5 (but not both), since those two connections are the only two that are diode-protected. This allows the MCU to be powered by an external power source at the same time it is connected to a USB cable. The "VD", "AV", and "BT" pins may also be used as a power outputs if the system is being powered from another source (and, again, L1 and R2 have been out-fitted).
    <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/STM32F103C8T6-breakout-board_power-section-graphic.png" width="1000">
 3. Reset
    - The reset button and smoothing capacitor (S1 and C9).
@@ -201,7 +201,7 @@ The schematic for this breakout board includes 7 modules or sections:
    - J8 is used to optionally remove the LED from the circuit, should you wish to not have the LED connected to its GPIO (as might be the case if you were using this GPIO for another purpose and needed to make sure you weren't exceeding the maximum current out on this pin).
    - To remove LED2 from the circuit, cut the trace between the terminals of J8 on the BOTTOM of the PCB (where its marked on the silkscreen).
    - To reinsert LED2, place a pin header and jumper in J8. The jumper now controls whether LED2 is included in the circuit or not.
-7. Debug connectors (J3/4 and the 4 pins labeled "ST-Link")
+7. Debug connectors (J3/J4 and the 4 pins labeled "ST-Link")
    - J4 is configured to match the pinout of the 10-pin connector on the J-Link Edu Mini.
    - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini, which can save ~$0.50/board (not including tax and shipping). The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
    - The bottom four pins of J2 match the four pins on an ST-Link required to program this MCU. If you want to use these pins and still have them connected to a breadboard, I would recommend soldering extra-long male headers onto these pins (and normal male headers on the rest of J1/2).
