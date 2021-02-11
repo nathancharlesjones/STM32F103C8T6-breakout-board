@@ -66,11 +66,11 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 To estimate how much a specific configuration of this breakout board will cost, add the cost of the MCU to the cost of the configuration used (Minimum, Standard, or Full; see [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations) for additional details). If the MCU being used is an "Extended" component on JLC PCB's website, then you'll also need to add $3.00 to the total order, or $0.30/board (for quantities of 10). For example, using the GigaDevice GD32E230C8T6 as mentioned in [What is it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#what-is-it), the total cost per board for quantities of 10 is $2.95 because we added the cost for the Minimum configuration ($2.04) to the cost of the MCU in quantities of 10 ($0.61) and added in $0.30 for the Extended component fee.
 
 ```
-Cost per board (Qty: 10) = Configuration cost + MCU cost +          Extended component fee ($0.30; if applicable)
-                           Minimum:  $2.04      GD32E230C8T6: $0.61
-                           Standard: $3.22      STM32F030C6:  $0.69
-                           Full:     $3.99      GD32F150C6T6: $1.03
-                           						STM32F302C8:  $1.61
+Cost per board = Configuration cost + MCU cost +          Extended component fee
+(Qty: 10)        Minimum:  $2.04      GD32E230C8T6: $0.61 $0.30 (if applicable)
+                 Standard: $3.22      STM32F030C6:  $0.69
+                 Full:     $3.99      GD32F150C6T6: $1.03
+                                      STM32F302C8:  $1.61
 ```
 
 ## Suggested configurations
