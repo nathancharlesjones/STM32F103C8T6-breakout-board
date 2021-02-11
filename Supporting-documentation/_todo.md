@@ -117,8 +117,8 @@
 - [x] Add xls pin compatible list
 - [x] Check parts with MOQ > 10
 - [x] Add notes to JLCPCB pin compatible list
-- [ ] Update list of recommended alternatives
-- [ ] Edit pin compatible section (should say: here are the pin compatible MCUs that are available on JLC PCB, add $2 to the Qty:10 price to get the cost per board for a minimum configuration, etc)
+- [x] Update list of recommended alternatives
+- [x] Edit pin compatible section (should say: here are the pin compatible MCUs that are available on JLC PCB, add $2 to the Qty:10 price to get the cost per board for a minimum configuration, etc)
 - [ ] Add pictures of assembled board with extra-long headers and USB breakout
 - [x] Update prices (MCUs, assembly)
 - [ ] Rename spreadsheets
@@ -143,3 +143,6 @@
   - [x] GD32F303CCT6
   - [x] GD32F103CBT6
 - [ ] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
+- [ ] Change spreadsheet to use lookups
+- [ ] Check cost of resistors/capacitors
+- [ ] Add note about ordering in qty 50/100
