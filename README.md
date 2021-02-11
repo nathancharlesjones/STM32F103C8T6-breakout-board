@@ -8,6 +8,7 @@
    - [STM32F103C8T6 specifications](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#stm32f103c8t6-specifications)
 2. [How do I get it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-do-i-get-it)
    - [Ordering instructions](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#ordering-instructions)
+   - [Pricing information](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pricing-information)
    - [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
       - [Minimum components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum-components)
       - [Standard components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-components)
@@ -23,7 +24,17 @@
 # PCB images
 
 # What is it?
-A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB. Using the STM32F031C6 MCU instead of the STM32F103C8 (see below for a comparison of their specifications), this board can be purchased for as little as $3.32/board in quantities of 10 ($4.49/board + $1 for a USB mini-B connector for a typical application).
+A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB (not including any through-hole components such as a USB connector). Although the STM32F103C8T6 is $5.61/unit on JLC PCB at the time of this writing (09 Feb 21), a plethora of pin-compatible MCUs exist (including from another manufacturer named GigaDevice) which allow this board to be purchased in quantities of 10 for the prices shown below. (Anywhere from 14 to 125 MCUs, that I could find, are pin-compatible with this breakout board. See the section [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) for additional details.)
+
+|MCU Manufacturer   |Part number |Price for PCB, assembled (Qty: 10)|Core      |Clock |Flash|RAM  |Notes                        |
+|-------------------|------------|----------------------------------|----------|------|-----|-----|-----------------------------|
+|GigaDevice         |GD32E230C8T6|$2.95                             |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration|
+|ST Microelectronics|STM32F030C6 |$3.03                             |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration|
+|GigaDevice         |GD32F150C6T6|$4.55<sup>1</sup>sup>             |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
+|ST Microelectronics|STM32F302C8 |$5.13<sup>1</sup>sup>             |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
+
+### Notes
+1. Plus \~$1 for a USB connector
 
 ## Compact version
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" height="900"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" height="900">
@@ -37,7 +48,7 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 |---|---|---|---|---|---|---|---|---|
 |ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
 
-Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is an outrageous $5.62/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) section below for some additional information). The STM32F103C8T6 is listed first for comparison.
+Unfortunately, at the time of this writing (09 Feb 2021), the STM32F103C8T6 is an outrageous $5.61/unit on JLC PCB. The MCUs below seem to be the next best alternatives, to me (see the [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) section below for some additional information). The STM32F103C8T6 is listed first for comparison.
 
 |Part|Cost<sup>1</sup>|Stock on JLC PCB<sup>1</sup>|Processor|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|EEPROM size|Data converters|
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -58,10 +69,22 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
 1. Download or clone this repository.
 2. Choose which board you'd like to have built. The "compact" version measures 0.85" x 2.25" and is meant to fit in a standard breadboard, giving you 1-2 rows on either side to connect components and/or jumper wires. The "protoboard" version is the exact same layout but includes a prototyping area that resembles a half-size breadboard; it measures 1.9" x 3.9".
 3. Choose which components you want to include on your breakout board. If it's not one of the prepared arrangements below (Minimum, Standard, or Full), edit the bill of materials ("bom") to include only those components that you want. The easiest way to do this is probably to start with the "Everything" list and simply delete the rows of the components you don't want to include.
-   - The STM32F103C8T6 is included in the bill of materials by default. As was mentioned above, this MCU was an outrageous $6.16/unit at the time of this writing. If you want to use a different, pin-compatible MCU (see [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) below for a list), don't forget to edit the part number for U1 (the MCU) in the "bom" file.
+   - The STM32F103C8T6 is included in the bill of materials by default. As was mentioned above, this MCU was an outrageous $5.61/unit at the time of this writing. If you want to use a different, pin-compatible MCU (see [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) below for a list), don't forget to edit the part number for U1 (the MCU) in the "bom" file.
 4. Follow [these instructions for ordering an assembled PCB from JLCPCB or MakerFabs](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#ordering-an-assembled-pcb).
    - Each time I ordered this board I was asked by the engineers at JLC PCB if the polarities of my components were correct. I'm not sure what they are looking at that seems to indicate to them that they might be incorrect, but the components are, in fact, oriented correctly in the cpl file, as confirmed by assembling and testing the board myself.
    - The slot for the Debug Edge connector (J3) is right at the manufacturing limits for JLC PCB. They recommend that slots have a minimum size of 1.0mm but in conversations with their engineers they've told me that slots as small as 0.8mm are possible. The slot used is 0.83mm wide and JLC PCB has manufactured it like this twice with no issues. If a 1.0mm slot is preferable and/or required, there is another part in the ["Debug-Edge_AVX-connectors" Eagle library](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/libraries) with a slot this size. All you'll need to do is edit the Eagle files to use this part instead of the current one and then re-generate the Gerbers.
+
+## Pricing information
+
+To estimate how much a specific configuration of this breakout board will cost, add the cost of the MCU to the cost of the configuration used (Minimum, Standard, or Full; see [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations) for additional details). If the MCU being used is an "Extended" component on JLC PCB's website, then you'll also need to add $3.00 to the total order, or $0.30/board (for quantities of 10). For example, using the GigaDevice GD32E230C8T6 as mentioned in [What is it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#what-is-it), the total cost per board for quantities of 10 is $2.95 because we added the cost for the Minimum configuration ($2.04) to the cost of the MCU in quantities of 10 ($0.61) and added in $0.30 for the Extended component fee.
+
+```
+Cost per board (Qty: 10) = Configuration cost + MCU cost +          Extended component fee ($0.30; if applicable)
+                           Minimum: $2.04       GD32E230C8T6: $0.61
+                           Standard: $3.22      STM32F030C6: $0.69
+                           Full: $3.99          GD32F150C6T6: $
+                           						STM32F302C8: $
+```
 
 ## Suggested configurations
 
@@ -84,8 +107,7 @@ Unfortunately, at the time of this writing (02 Jan 2021), the STM32F103C8T6 is a
    - AVDD connected directly to VDD (no high-frequency noise filtration)
    - No battery back-up
    - BOOT0 fixed at logical "0"
-   - No external oscillator
-   - No USB
+   - No external oscillators (therefore, no USB)
 
 ### Standard components
 - Cost: Approximately $3.22 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
