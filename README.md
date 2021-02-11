@@ -30,8 +30,8 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 |-------------------|------------|----------------------------------|----------|------|-----|-----|-----------------------------|
 |GigaDevice         |GD32E230C8T6|$2.95                             |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration|
 |ST Microelectronics|STM32F030C6 |$3.03                             |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration|
-|GigaDevice         |GD32F150C6T6|$4.55<sup>1</sup>sup>             |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
-|ST Microelectronics|STM32F302C8 |$5.13<sup>1</sup>sup>             |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
+|GigaDevice         |GD32F150C6T6|$4.55<sup>1</sup>                 |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
+|ST Microelectronics|STM32F302C8 |$5.13<sup>1</sup>                 |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
 
 ### Notes
 1. Plus \~$1 for a USB connector
