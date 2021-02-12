@@ -27,12 +27,12 @@
 # What is it?
 A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB (not including any through-hole components such as a USB connector). Although the STM32F103C8T6 is $5.61/unit on JLC PCB at the time of this writing (09 Feb 21), a plethora of pin-compatible MCUs exist (including from another manufacturer named GigaDevice) which allow this board to be purchased in quantities of 10 for the prices shown below. Anywhere from 14 to 125 MCUs, that I could find, are pin-compatible with this breakout board. See the section [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) for additional details.
 
-|MCU Manufacturer   |Part number             |Price for PCB, assembled (Qty: 10)|Core      |Clock |Flash|RAM  |Notes                        |
-|-------------------|------------------------|----------------------------------|----------|------|-----|-----|-----------------------------|
-|GigaDevice         |GD32E230C8T6<sup>1</sup>|$2.95                             |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration|
-|ST Microelectronics|STM32F031C6TR           |$3.31                             |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration|
-|GigaDevice         |GD32F150C6T6<sup>1</sup>|$4.55<sup>2</sup>                 |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
-|ST Microelectronics|STM32F302C8             |$5.13<sup>2</sup>                 |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
+|MCU Manufacturer   |Part number             |Price, assembled (Qty: 10)|Core      |Clock |Flash|RAM  |Notes                            |
+|-------------------|------------------------|--------------------------|----------|------|-----|-----|---------------------------------|
+|GigaDevice         |GD32E230C8T6<sup>1</sup>|$2.95                     |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration    |
+|ST Microelectronics|STM32F031C6TR           |$3.31                     |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration    |
+|GigaDevice         |GD32F150C6T6<sup>1</sup>|$4.55<sup>2</sup>         |Cortex-M23|72 MHz|32 kB|6 kB |Standard, with HSE, configuration|
+|ST Microelectronics|STM32F302C8             |$5.13<sup>2</sup>         |Cortex-M4 |72 MHz|64 kB|16 kB|Standard, with HSE, configuration|
 
 ### Notes
 1. See [Developing for GigaDevice MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#developing-for-gigadevice-mcus) for a few tips about how to write code for these devices.
@@ -68,11 +68,11 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 To estimate how much a specific configuration of this breakout board will cost, add the cost of the MCU to the cost of the configuration used (Minimum, Standard, or Full; see [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations) for additional details). If the MCU being used is an "Extended" component on JLC PCB's website, then you'll also need to add $3.00 to the total order, or $0.30/board (for quantities of 10). For example, using the GigaDevice GD32E230C8T6 as mentioned in [What is it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#what-is-it), the total cost per board for quantities of 10 is $2.95 because we added the cost for the Minimum configuration ($2.04) to the cost of the MCU in quantities of 10 ($0.61) and added in $0.30 for the Extended component fee.
 
 ```
-Cost per board = Configuration cost + MCU cost +          Extended component fee
-(Qty: 10)        Minimum:  $2.04      GD32E230C8T6: $0.61 $0.30 (if applicable)
-                 Standard: $3.22      STM32F031C6:  $0.97
-                 Full:     $3.99      GD32F150C6T6: $1.03
-                                      STM32F302C8:  $1.61
+Cost per board = Configuration cost +       MCU cost +           Extended component fee
+(Qty: 10)        Minimum:            $2.04  GD32E230C8T6: $0.61  $0.30 (if applicable)
+                 Standard, no HSE:   $2.32  STM32F031C6:  $0.97
+                 Standard, with HSE: $3.22  GD32F150C6T6: $1.03
+                 Full:               $3.99  STM32F302C8:  $1.61
 ```
 
 ## Suggested configurations
@@ -98,7 +98,29 @@ Cost per board = Configuration cost + MCU cost +          Extended component fee
    - BOOT0 fixed at logical "0"
    - No external oscillators (therefore, no USB)
 
-### Standard components
+### Standard components, no HSE oscillator
+- Cost: Approximately $2.32 per board on JLCPCB (in quantities of 10) + the cost of the MCU
+  - $7.93 per board to use the STM32F103C8T6
+  - $3.59 per board to use the STM32F031C6TR instead of the STM32F103
+  - $5.62 per board to use the STM32F302CBT6 instead of the STM32F103
+- The components most likely to be needed for a typical application (that doesn't need the high-speed external oscillator for USB, high-speed UART, accurate timing, etc).
+- Includes:
+   - STM32F103C8T6 (U1)
+   - Power regulator, power filtering capacitors, blocking diodes, ferrite bead (U2, C1-C8, D1, D2, L1)
+   - Reset circuit (C9, S1)
+   - Power LED (LED1, R7)
+   - User LED (LED2, R8)
+   - BOOT0/BOOT1 current-limiting resistors (R3/5)
+   - Pull-up resistor on USB_DP (R1)
+   - Shorting resistor to connect VBAT and VDD (R2)
+- MCU can be powered from VDD (2-3.6V; >=2.4V if ADC is used), VIN (4.8-15V), or from USB (J5)
+- User doesn't have to short any pads together (accomplished with a 0 ohm resistor, R2)
+- User must populate J6/7 with a pin header and jumper in order to select the proper BOOT0/BOOT1 configuration
+- Constraints:
+   - No battery back-up
+   - No external oscillators (therefore, no USB)
+
+### Standard components, with HSE oscillator
 - Cost: Approximately $3.22 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
   - $8.84 per board to use the STM32F103C8T6
   - $4.49 per board to use the STM32F031C6TR instead of the STM32F103

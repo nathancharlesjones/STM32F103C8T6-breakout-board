@@ -142,7 +142,7 @@
   - [x] GD32F190C8T6
   - [x] GD32F303CCT6
   - [x] GD32F103CBT6
-- [ ] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
+- [x] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
 - [ ] Change spreadsheet to use lookups
 - [ ] Check cost of resistors/capacitors
 - [ ] Add note about ordering in qty 50/100
