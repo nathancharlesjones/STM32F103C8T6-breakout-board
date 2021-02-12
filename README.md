@@ -14,6 +14,7 @@
       - [Standard components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-components)
       - [Full components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#full-components)
    - [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus)
+   - [Developing for GigaDevice MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#developing-for-gigadevice-mcus)
 3. [How does it work?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-does-it-work)
    - [Schematic](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#schematic)
    - [Pinout](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pinout)
@@ -26,15 +27,16 @@
 # What is it?
 A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembled, from JLC PCB (not including any through-hole components such as a USB connector). Although the STM32F103C8T6 is $5.61/unit on JLC PCB at the time of this writing (09 Feb 21), a plethora of pin-compatible MCUs exist (including from another manufacturer named GigaDevice) which allow this board to be purchased in quantities of 10 for the prices shown below. (Anywhere from 14 to 125 MCUs, that I could find, are pin-compatible with this breakout board. See the section [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) for additional details.)
 
-|MCU Manufacturer   |Part number |Price for PCB, assembled (Qty: 10)|Core      |Clock |Flash|RAM  |Notes                        |
-|-------------------|------------|----------------------------------|----------|------|-----|-----|-----------------------------|
-|GigaDevice         |GD32E230C8T6|$2.95                             |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration|
-|ST Microelectronics|STM32F030C6 |$3.03                             |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration|
-|GigaDevice         |GD32F150C6T6|$4.55<sup>1</sup>                 |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
-|ST Microelectronics|STM32F302C8 |$5.13<sup>1</sup>                 |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
+|MCU Manufacturer   |Part number             |Price for PCB, assembled (Qty: 10)|Core      |Clock |Flash|RAM  |Notes                        |
+|-------------------|------------------------|----------------------------------|----------|------|-----|-----|-----------------------------|
+|GigaDevice         |GD32E230C8T6<sup>1</sup>|$2.95                             |Cortex-M23|72 MHz|64 kB|8 kB |No USB; Minimum configuration|
+|ST Microelectronics|STM32F030C6             |$3.03                             |Cortex-M0 |48 MHz|32 kB|4 kB |No USB; Minimum configuration|
+|GigaDevice         |GD32F150C6T6<sup>1</sup>|$4.55<sup>2</sup>                 |Cortex-M23|72 MHz|32 kB|6 kB |Standard configuration       |
+|ST Microelectronics|STM32F302C8             |$5.13<sup>2</sup>                 |Cortex-M4 |72 MHz|64 kB|16 kB|Standard configuration       |
 
 ### Notes
-1. Plus \~$1 for a USB connector
+1. See [Developing for GigaDevice MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#developing-for-gigadevice-mcus) for a few tips about how to write code for these devices.
+2. Plus \~$1 for a USB connector
 
 ## Compact version
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_top.png" height="900"> <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_compact/blob/main/compact_bottom.png" height="900">
@@ -153,6 +155,10 @@ Interestingly, there were actually 3 MCUs on this list that I do not think are p
 The third category of pin-compatible MCUs are those whose pinouts indicate that they would work with this breakout board without requiring any external components or jumper wires. There are **124** MCUs in that list (125 if you include the STM32F103C8T6), including 18 from another manufacturer named GigaDevice, which you can view by opening the spreadsheet above and filtering for only those MCUs listed as "TRUE" in the column named "Pin-compatibility (3)". Only 74 of those MCUs are available on JLC PCB, though, and only 32 are in-stock as of the time of this writing (11 Feb 2021).
 
 Keep in mind that for this last category I'm only looking at the respective pinouts to determine if an MCU is "pin compatible". I have not checked each of these parts and cannot guarantee that they will work with this board without modifications, with the exception of the STM32L151C8T6 and STM32F302CBT6 (I used those two on my first two batches of breakout boards, owing to the high cost of the STM32F103C8T6 at the time of my order, and I can confirm that they work). It is often the case that small, critical details can be hidden away in other pieces of documentation such as the hardware development guide or reference manual, so I would strongly recommend that you take my notes as merely a guide and that you take a much closer look at the datasheets and hardware development guides to determine for yourself if an MCU listed will actually work with this breakout board. The STM32CubeMX tool can be useful if you don't want to wade through a bunch of datasheets, but it might not tell the full story of which MCUs are or are not pin-compatible.
+
+## Developing for GigaDevice MCUs
+
+
 
 # How does it work?
 
