@@ -146,4 +146,4 @@
 - [ ] Change spreadsheet to use lookups
 - [ ] Check cost of resistors/capacitors
 - [ ] Add note about ordering in qty 50/100
-- [ ] Add note about GigaDevice development
+- [x] Add note about GigaDevice development
