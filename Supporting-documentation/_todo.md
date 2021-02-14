@@ -143,7 +143,12 @@
   - [x] GD32F303CCT6
   - [x] GD32F103CBT6
 - [ ] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
+  - [ ] Remove R1
 - [ ] Change spreadsheet to use lookups
-- [ ] Check cost of resistors/capacitors
+- [ ] Add note about how to update spreadsheet with most recent list of JLC PCB inventory
+- [x] Check cost of resistors/capacitors
 - [ ] Add note about ordering in qty 50/100
+  - [ ] Merge spreadsheets?
+  - [ ] Add qty prices for Standard, no HSE, and Full
+  - [ ] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development
