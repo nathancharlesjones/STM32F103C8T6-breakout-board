@@ -100,7 +100,7 @@
 - [x] Make power configuration diagram
 - [x] Update bom/cpl files
 - [x] Add ordering notes (polarity, slot, slotted holes)
-- [ ] Add editing notes (custom part, Layer 46?)
+- [ ] Add editing notes (custom parts)
 - [x] Update libraries folder
 - [x] Add design block
 - [x] Reword the "What is it?" section
@@ -149,6 +149,6 @@
 - [x] Check cost of resistors/capacitors
 - [ ] Add note about ordering in qty 50/100
   - [ ] Merge spreadsheets?
-  - [ ] Add qty prices for Standard, no HSE, and Full
-  - [ ] Update configuration notes for Standard, no HSE, and Full
+  - [x] Add qty prices for Standard, no HSE, and Full
+  - [x] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development

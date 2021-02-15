@@ -80,7 +80,7 @@ To estimate how much a specific configuration of this breakout board will cost, 
 ```
 Cost per board = Configuration cost +       MCU cost +           Extended component fee
 (Qty: 10)        Minimum:            $2.04  GD32E230C8T6: $0.61  $0.30 (if applicable)
-                 Standard, no HSE:   $2.32  STM32F031C6:  $0.97
+                 Standard, no HSE:   $2.30  STM32F031C6:  $0.97
                  Standard, with HSE: $3.22  GD32F150C6T6: $1.03
                  Full:               $3.99  STM32F302C8:  $1.61
 ```
@@ -110,10 +110,12 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - No external oscillators (therefore, no USB)
 
 ### Standard components, no HSE oscillator
-- Cost: Approximately $2.32 per board on JLCPCB (in quantities of 10) + the cost of the MCU
-  - $7.93 per board to use the STM32F103C8T6
-  - $3.59 per board to use the STM32F031C6TR instead of the STM32F103
-  - $5.62 per board to use the STM32F302CBT6 instead of the STM32F103
+- Cost: Amount shown below + the cost of the MCU
+
+|Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
+|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+|$2.30              |$1.69              |$1.40              |$1.23              |$1.12              |$0.97              |
+
 - The components most likely to be needed for a typical application (that doesn't need the high-speed external oscillator for USB, high-speed UART, accurate timing, etc).
 - Includes:
    - Power regulator, power filtering capacitors, blocking diodes, ferrite bead (U2, C1-C8, D1, D2, L1)
@@ -154,10 +156,13 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - No battery back-up
 
 ### Full components
-- Cost: Approximately $3.99 per board on JLCPCB (in quantities of 10) + the cost of the MCU + $1 for a USB mini-B connector
-  - $9.61 per board to use the STM32F103C8T6
-  - $5.26 per board to use the STM32L151C8T6 instead of the STM32F103
-  - $7.29 per board to use the STM32F302CBT6 instead of the STM32F103
+- Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector
+
+|Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
+|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
+|$3.99              |$3.14              |$2.74              |$2.50              |$2.07              |$1.82              |
+
+- All parts are populated (except R2, R4, and R6, since this configuration uses VBAT and BOOT0/BOOT1), including the LSE oscillator
 - Includes:
    - Power regulator, power filtering capacitors, blocking diodes, ferrite bead (U2, C1-C8, D1, D2, L1)
    - Reset circuit (C9, S1)
@@ -304,6 +309,10 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 > - FMI: github.com/nathancharlesjones/STM32F103C8T6-breakout-board
 
 # Notes on editing the design files
+
+- How to get design files
+- Which libraries are used
+- Layout restrictions
 
 # References
 - [STM32F103C8 product page](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)
