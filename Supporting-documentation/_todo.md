@@ -1,3 +1,5 @@
+# v1
+
 - [x] What's the pinout for the J-Link connector? -> Not compatible with 20-pin JTAG
   - [x] Is SWD reset connected to NRST or JTRST? -> NRST
     - Pin 10 on 10-pin connector (nRST) is the same as Pin 15 on 20-pin connector (RST or nSRST) and connects to NRST on STM32 (pin 7)
@@ -124,7 +126,7 @@
 - [ ] Add pictures of assembled board with extra-long headers and USB breakout
 - [x] Update prices (MCUs, assembly)
 - [x] Rename spreadsheets
-- [ ] Possible to make spreadsheets viewable in Git?
+- [x] Possible to make spreadsheets viewable in Git? -> No, but [this tool](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) handily converts Excel tables into Markdown tables
 - [x] Check pin-compatibility for:
   - [x] GD32E230C8T6
   - [x] GD32F130C6T6
@@ -154,3 +156,7 @@
   - [x] Add qty prices for Standard, no HSE, and Full
   - [x] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development
+
+# v2
+
+- [ ] Add footprint for battery clip on bottom of PCB?

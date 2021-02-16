@@ -10,9 +10,10 @@
    - [Ordering instructions](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#ordering-instructions)
    - [Pricing information](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pricing-information)
    - [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
-      - [Minimum components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum-components)
-      - [Standard components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-components)
-      - [Full components](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#full-components)
+      - [Minimum](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum)
+      - [Standard, no HSE oscillator](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-no-hse-oscillator)
+      - [Standard, with HSE oscillator](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-with-hse-oscillator)
+      - [Full](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#full)
    - [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus)
    - [Developing for GigaDevice MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#developing-for-gigadevice-mcus)
 3. [How does it work?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-does-it-work)
@@ -56,9 +57,9 @@ The unit price also drops significantly for orders of more than 10.
 <img src="https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board_protoboard/blob/main/protoboard_bottom.png" width="800">
 
 ## STM32F103C8T6 specifications
-|Processor|Core Size|Speed|Connectivity|Peripherals|I/O|Program memory size|RAM size|Data converters|
-|---|---|---|---|---|---|---|---|---|
-|ARM Cortex-M3|32-bit|72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37|64 kB|20 kB|ADC: 10x 12-bit|
+|Processor    |Core Size|Speed |Connectivity                                   |Peripherals                                                 |I/O|Program memory|RAM  |Data converters|
+|-------------|---------|------|-----------------------------------------------|------------------------------------------------------------|---|--------------|-----|---------------|
+|ARM Cortex-M3|32-bit   |72 MHz|I2C, SPI, UART/USART, USB, CANbus, IrDA, LINbus|DMA, Motor Control PWM, PDR, POR, PVD, PWM, Temp Sensor, WDT|37 |64 kB         |20 kB|ADC: 10x 12-bit|
 
 # How do I get it?
 
@@ -87,7 +88,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
 
 ## Suggested configurations
 
-### Minimum components
+### Minimum
 - Cost: Amount shown below + the cost of the MCU
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
@@ -109,7 +110,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - BOOT0 fixed at logical "0"
    - No external oscillators (therefore, no USB)
 
-### Standard components, no HSE oscillator
+### Standard, no HSE oscillator
 - Cost: Amount shown below + the cost of the MCU
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
@@ -131,7 +132,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - No battery back-up
    - No external oscillators (therefore, no USB)
 
-### Standard components, with HSE oscillator
+### Standard, with HSE oscillator
 - Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
@@ -155,7 +156,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
 - Constraints:
    - No battery back-up
 
-### Full components
+### Full
 - Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
@@ -178,7 +179,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
 
 ## Pin-compatible MCUs
 
-Depending on how you count, there are anywhere from 14 to 125 other MCUs that are pin-compatible with this breakout board. I made a [spreadsheet with all 125 possibly pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/Pin-compatibility-check/LQFP) and added some notes about how they differ from the STM32F103C8T6 and also their stock and pricing information on JLC PCB. A note about the three categories of "pin-compatibility" follows.
+Depending on how you count, there are anywhere from 14 to 125 other MCUs that are pin-compatible with this breakout board. I made a [spreadsheet with all 125 possibly pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/Pin-compatible-MCUs.xlsx) (also in [PDF format](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/Supporting-documentation/Pin-compatible-MCUs.pdf), for online viewing) and added some notes about how they differ from the STM32F103C8T6 and also their stock and pricing information on JLC PCB. A note about the three categories of "pin-compatibility" follows.
 
 The first category of pin-compatible MCUs are those that STM32CubeMX lists as pin-compatible with the STM32F103C8T6 if it is using the USB and JTAG peripherals and both external oscillators. There are **13** MCUs in that list (14 if you include the STM32F103C8T6 itself), which you can view by opening the spreadsheet above and filtering for only those MCUs listed as "TRUE" in the column named "Pin-compatibility (1)".
 
