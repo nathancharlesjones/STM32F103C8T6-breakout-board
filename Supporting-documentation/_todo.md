@@ -82,9 +82,11 @@
   - [ ] J-link
   - [ ] Debug Edge
   - [ ] Bootloader, J5
-  - [ ] Bootloader, "USB breakout"
+  - [ ] Bootloader, "USB breakout", Female headers
+  - [ ] Bootloader, "USB breakout", Breadboard
   - [ ] USB serial, J5
-  - [ ] USB serial, "USB breakout"
+  - [ ] USB serial, "USB breakout", Female headers
+  - [ ] USB serial, "USB breakout", Breadboard
   - [ ] VIN
 - [x] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
@@ -121,7 +123,7 @@
 - [x] Edit pin compatible section (should say: here are the pin compatible MCUs that are available on JLC PCB, add $2 to the Qty:10 price to get the cost per board for a minimum configuration, etc)
 - [ ] Add pictures of assembled board with extra-long headers and USB breakout
 - [x] Update prices (MCUs, assembly)
-- [ ] Rename spreadsheets
+- [x] Rename spreadsheets
 - [ ] Possible to make spreadsheets viewable in Git?
 - [x] Check pin-compatibility for:
   - [x] GD32E230C8T6
@@ -142,13 +144,13 @@
   - [x] GD32F190C8T6
   - [x] GD32F303CCT6
   - [x] GD32F103CBT6
-- [ ] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
-  - [ ] Remove R1
-- [ ] Change spreadsheet to use lookups
-- [ ] Add note about how to update spreadsheet with most recent list of JLC PCB inventory
+- [x] Change "Standard" to "Standard_with-USB" and "Standard_no-USB" (or change all to "no-Vreg", "with_Vreg", with-HSE-OSC", "with-HSE-and-LSE-OSC"?)
+  - [x] Remove R1
+- [x] Change spreadsheet to use lookups
+- [x] Add note about how to update spreadsheet with most recent list of JLC PCB inventory
 - [x] Check cost of resistors/capacitors
-- [ ] Add note about ordering in qty 50/100
-  - [ ] Merge spreadsheets?
+- [x] Add note about ordering in qty 50/100
+  - [x] Merge spreadsheets?
   - [x] Add qty prices for Standard, no HSE, and Full
   - [x] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development
