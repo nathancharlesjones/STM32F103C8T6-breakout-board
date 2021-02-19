@@ -38,11 +38,11 @@ A breakout board for the STM32F103C8T6 MCU which can be purchased, fully assembl
 The unit price also drops significantly for orders of more than 10.
 
 |MCU Manufacturer   |Part number             |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50<sup>3</sup>|
-|-------------------|------------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-|GigaDevice         |GD32E230C8T6<sup>1</sup>|$2.95              |$2.35              |$2.07              |$1.89              |$1.78              |$1.63              |
-|ST Microelectronics|STM32F031C6TR           |$3.31              |$2.71              |$2.43              |$2.25              |$2.14              |$1.99              |
-|GigaDevice         |GD32F150C6T6<sup>1</sup>|$4.55<sup>2</sup>  |$3.81<sup>2</sup>  |$3.46<sup>2</sup>  |$3.26<sup>2</sup>  |$2.97<sup>2</sup>  |$2.77<sup>2</sup>  |
-|ST Microelectronics|STM32F302C8             |$5.13<sup>2</sup>  |$4.39<sup>2</sup>  |$4.04<sup>2</sup>  |$3.84<sup>2</sup>  |$3.55<sup>2</sup>  |$3.35<sup>2</sup>  |
+|-------------------|------------------------|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------------------|
+|GigaDevice         |GD32E230C8T6<sup>1</sup>|$2.95              |$2.35              |$2.07              |$1.89              |$1.78              |$1.63                          |
+|ST Microelectronics|STM32F031C6TR           |$3.31              |$2.71              |$2.43              |$2.25              |$2.14              |$1.99                          |
+|GigaDevice         |GD32F150C6T6<sup>1</sup>|$4.55<sup>2</sup>  |$3.81<sup>2</sup>  |$3.46<sup>2</sup>  |$3.26<sup>2</sup>  |$2.97<sup>2</sup>  |$2.77<sup>2</sup>              |
+|ST Microelectronics|STM32F302C8             |$5.13<sup>2</sup>  |$4.39<sup>2</sup>  |$4.04<sup>2</sup>  |$3.84<sup>2</sup>  |$3.55<sup>2</sup>  |$3.35<sup>2</sup>              |
 
 ### Notes
 1. See [Developing for GigaDevice MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#developing-for-gigadevice-mcus) for a few tips about how to write code for these devices.
@@ -67,7 +67,7 @@ The unit price also drops significantly for orders of more than 10.
 
 1. Download or clone this repository.
 2. Choose which board you'd like to have built. The "compact" version measures 0.85" x 2.25" and is meant to fit in a standard breadboard, giving you 1-2 rows on either side to connect components and/or jumper wires. The "protoboard" version is the exact same layout but includes a prototyping area that resembles a half-size breadboard; it measures 1.9" x 3.9".
-3. Choose which components you want to include on your breakout board. If it's not one of the prepared arrangements below (Minimum, Standard, or Full), edit the bill of materials ("bom") to include only those components that you want. The easiest way to do this is probably to start with the "Everything" list and simply delete the rows of the components you don't want to include.
+3. Choose which components you want to include on your breakout board. If it's not one of the prepared arrangements below (Minimum; Standard, no HSE; Standard, with HSE; or Full), edit the bill of materials ("bom") to include only those components that you want. The easiest way to do this is probably to start with the "Everything" list and simply delete the rows of the components you don't want to include.
    - The STM32F103C8T6 is included in the bill of materials by default. As was mentioned above, this MCU was an outrageous $5.61/unit at the time of this writing. If you want to use a different, pin-compatible MCU (see [Pin-compatible MCUs](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pin-compatible-mcus) below for a list), don't forget to edit the part number for U1 (the MCU) in the "bom" file. Alternatively, JLC PCB allows you to search for and use a different part after you've uploaded the bill of materials.
    - Double-check L1 and R2, which are used if you **don't** intend to use AVDD or VBAT (respectively). If you **do** intend to use AVDD and/or VBAT, make sure L1 (for AVDD) and/or R2 (for VBAT) are **not** populated.
 4. Follow [these instructions for ordering an assembled PCB from JLCPCB or MakerFabs](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#ordering-an-assembled-pcb).
@@ -133,7 +133,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - No external oscillators (therefore, no USB)
 
 ### Standard, with HSE oscillator
-- Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector
+- Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector (optional)
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
 |-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -157,7 +157,7 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
    - No battery back-up
 
 ### Full
-- Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector
+- Cost: Amount shown below + the cost of the MCU + $1 for a USB mini-B connector (optional)
 
 |Unit price, Qty: 10|Unit price, Qty: 15|Unit price, Qty: 20|Unit price, Qty: 25|Unit price, Qty: 30|Unit price, Qty: 50|
 |-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -311,9 +311,20 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 
 # Notes on editing the design files
 
-- How to get design files
-- Which libraries are used
-- Layout restrictions
+Both my original Eagle project files and a design block made from the project files are available (for both the compact and protoboard versions). You should be able to use either to edit the design.
+
+You'll need to following libraries in order for the PCB to display correctly:
+  - [SparkFun]()
+  - [Adafruit]()
+  - [Seeed OPL]()
+  - [USB connector
+  - [STM32]()
+  - crystal-geyer_V1_0 (for the two oscillators; built-in Eagle library)
+  - [Debug Edge connector]()
+
+The only part of the layout which may be critical are the USB DP and DM traces. Based on [this appnote](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/References/AN4879_USB-hardware-and-PCB-guidelines-using-STM32-MCUs.pdf), it seems like they should be length-matched, which I was able to accomplish by adding a meander to DP (the squiggly part of the trace just above the USB connector). This doesn't include the short jog that each trace makes to the header pins on the left side of the PCB.
+
+Parts of the datasheet and hardware design manual that disagree??
 
 # References
 - [STM32F103C8 product page](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)
