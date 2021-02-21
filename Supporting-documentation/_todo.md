@@ -156,7 +156,9 @@
   - [x] Add qty prices for Standard, no HSE, and Full
   - [x] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development
+- [ ] Check links
 
 # v2
 
 - [ ] Add footprint for battery clip on bottom of PCB?
+- [ ] Add trace/jumper on USB DP/DM to prevent USB signals from interferring with GPIO?
