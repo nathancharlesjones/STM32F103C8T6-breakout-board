@@ -104,7 +104,7 @@
 - [x] Make power configuration diagram
 - [x] Update bom/cpl files
 - [x] Add ordering notes (polarity, slot, slotted holes)
-- [ ] Add editing notes (custom parts)
+- [x] Add editing notes (custom parts)
 - [x] Update libraries folder
 - [x] Add design block
 - [x] Reword the "What is it?" section
@@ -156,7 +156,7 @@
   - [x] Add qty prices for Standard, no HSE, and Full
   - [x] Update configuration notes for Standard, no HSE, and Full
 - [x] Add note about GigaDevice development
-- [ ] Check links
+- [x] Check links
 
 # v2
 
