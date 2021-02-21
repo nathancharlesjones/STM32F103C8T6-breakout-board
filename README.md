@@ -9,6 +9,7 @@
 2. [How do I get it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-do-i-get-it)
    - [Ordering instructions](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#ordering-instructions)
    - [Pricing information](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pricing-information)
+   - [Why should I get this instead of just buying a "Blue Pill"?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#why-should-i-get-this-instead-of-just-buying-a-blue-pill)
    - [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
       - [Minimum](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum)
       - [Standard, no HSE oscillator](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-no-hse-oscillator)
@@ -85,6 +86,15 @@ Cost per board = Configuration cost +       MCU cost +           Extended compon
                  Standard, with HSE: $3.22  GD32F150C6T6: $1.03
                  Full:               $3.99  STM32F302C8:  $1.61
 ```
+
+## Why should I get this instead of just buying a "Blue Pill"?
+
+The simple fact is that if your only concern is unit price, then you shouldn't. Even in small batch quantities, this breakout baord can't quite compete with unit pricess of $2 or $1.50 on sites like AliExpress, TaoBao, and BangGood. However, it has been [well-documented that counterfeit electronic components are rampant](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#sourcing-parts-and-avoiding-counterfeits) and in my first (and only) order of "Blue Pills" from AliExpress I received a batch of counterfeit MCUs which refused to work with any ST product (STM32CubeIDE and ST-Link). They seem to function fine using other development tools, but being counterfeit devices it's possible they could fail in unexpected ways. Common sources of counterfeit devices are recycled parts sold as new (which may or may not be the same part as what they're being advertised as), parts that came off the official assembly line and then failed a QA/QC, or parts that came off the official assembly "after hours" or in an unofficial capacity. This means my counterfeits (and any MCU bought from an unauthorized distributor such as AliExpress, TaoBao, and BangGood) (1) may look and act like the MCU I think I'm purchasing but are, in fact, a different MCU or (2) may not meet the manufacturer's specifications or may fail in unexpected ways. Thus, I would only recommend individuals to buy from unauthorized distributors if at least one of the following is true:
+- You are an experienced developer who can detect when an MCU has failed or is not meeting specification
+- It is of little to no concern if the MCU fails, either during development or while in use
+- It is okay if some of the MCUs you purchase must, effectively, be thrown out
+
+Additionally, the fact that this breakout board is pin-compatible with so many other MCUs allows for a small level of customization not available with the stock "Blue Pills".
 
 ## Suggested configurations
 
@@ -314,17 +324,15 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 Both my original Eagle project files and a design block made from the project files are available (for both the compact and protoboard versions). You should be able to use either to edit the design.
 
 You'll need to following libraries in order for the PCB to display correctly:
-  - [SparkFun]()
-  - [Adafruit]()
-  - [Seeed OPL]()
-  - [USB connector
-  - [STM32]()
+  - [SparkFun](https://github.com/sparkfun/SparkFun-Eagle-Libraries)
+  - [Adafruit](https://github.com/adafruit/Adafruit-Eagle-Library)
+  - [Seeed OPL](https://github.com/Seeed-Studio/OPL_Eagle_Library)
+  - [USB connector](https://componentsearchengine.com/part-view/2172034-1/TE%20Connectivity)
+  - [STM32F103C8T6](https://app.ultralibrarian.com/details/BD9A5901-10A2-11E9-AB3A-0A3560A4CCCC/STMicroelectronics/STM32F103C8T6?ref=digikey)
   - crystal-geyer_V1_0 (for the two oscillators; built-in Eagle library)
-  - [Debug Edge connector]()
+  - [Debug Edge connector](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/libraries)
 
 The only part of the layout which may be critical are the USB DP and DM traces. Based on [this appnote](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/References/AN4879_USB-hardware-and-PCB-guidelines-using-STM32-MCUs.pdf), it seems like they should be length-matched, which I was able to accomplish by adding a meander to DP (the squiggly part of the trace just above the USB connector). This doesn't include the short jog that each trace makes to the header pins on the left side of the PCB.
-
-Parts of the datasheet and hardware design manual that disagree??
 
 # References
 - [STM32F103C8 product page](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)
