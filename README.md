@@ -9,6 +9,7 @@
 2. [How do I get it?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#how-do-i-get-it)
    - [Ordering instructions](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#ordering-instructions)
    - [Pricing information](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#pricing-information)
+   - [Why should I get this instead of just buying a "Blue Pill"?](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#why-should-i-get-this-instead-of-just-buying-a-blue-pill)
    - [Suggested configurations](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#suggested-configurations)
       - [Minimum](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#minimum)
       - [Standard, no HSE oscillator](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board#standard-no-hse-oscillator)
@@ -73,6 +74,15 @@ The unit price also drops significantly for orders of more than 10.
 4. Follow [these instructions for ordering an assembled PCB from JLCPCB or MakerFabs](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#ordering-an-assembled-pcb).
    - Each time I ordered this board I was asked by the engineers at JLC PCB if the polarities of my components were correct. I'm not sure what they are looking at that seems to indicate to them that they might be incorrect, but the components are, in fact, oriented correctly in the cpl file, as confirmed by assembling and testing the board myself.
    - The slot for the Debug Edge connector (J3) is right at the manufacturing limits for JLC PCB. They recommend that slots have a minimum size of 1.0mm but in conversations with their engineers they've told me that slots as small as 0.8mm are possible. The slot used is 0.83mm wide and JLC PCB has manufactured it like this twice with no issues. If a 1.0mm slot is preferable and/or required, there is another part in the ["Debug-Edge_AVX-connectors" Eagle library](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/libraries) with a slot this size. All you'll need to do is edit the Eagle files to use this part instead of the current one and then re-generate the Gerbers.
+
+## Why should I get this instead of just buying a "Blue Pill"?
+
+The simple fact is that if your only concern is unit price, then you shouldn't. Even in small batch quantities, this breakout baord can't quite compete with unit pricess of $2 or $1.50 on sites like AliExpress, TaoBao, and BangGood. However, it has been [well-documented that counterfeit electronic components are rampant](https://github.com/nathancharlesjones/Embedded-for-Everyone/wiki/3.-Building-a-circuit-on-a-PCB-and-connecting-it-to-the-rest-of-the-embedded-device#sourcing-parts-and-avoiding-counterfeits) and in my first (and only) order of "Blue Pills" from AliExpress I received a batch of counterfeit MCUs which refused to work with any ST product (neither STM32CubeIDE nor ST-Link). They seem to function fine using other development tools, but being counterfeit devices it's possible they could fail in unexpected ways. Common sources of counterfeit devices are recycled parts sold as new (which may or may not be the same part as what they're being advertised as), parts that came off the official assembly line and then failed a QA/QC, or parts that came off the official assembly "after hours" or in an unofficial capacity. This means my counterfeits (and any MCU bought from an unauthorized distributor such as AliExpress, TaoBao, and BangGood) (1) may look and act like the MCU I think I'm purchasing but are, in fact, a different MCU or (2) may not meet the manufacturer's specifications or may fail in unexpected ways. Thus, I would only recommend individuals to buy from unauthorized distributors if all of the following are true:
+- You are an experienced developer who can detect when an MCU has failed or is not meeting specification
+- It is of little to no concern if the MCU fails, either during development or while in use
+- It is okay if some of the MCUs you purchase must, effectively, be thrown out
+
+Additionally, the fact that this breakout board is pin-compatible with so many other MCUs allows for a small level of customization not available with the stock "Blue Pills".
 
 ## Pricing information
 
@@ -242,7 +252,7 @@ The schematic for this breakout board includes 7 modules or sections:
    - To reinsert LED2, place a pin header and jumper in J8. The jumper now controls whether LED2 is included in the circuit or not.
 7. Debug connectors (J3/J4 and the 4 pins labeled "ST-Link")
    - J4 is configured to match the pinout of the 10-pin connector on the J-Link Edu Mini.
-   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini, which can save ~$0.50/board (not including tax and shipping). The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
+   - J3 is intended for use with a series of board-to-board connectors by AVX, popularly called ["Debug Edge"](https://www.debug-edge.io). The purpose, once an [adapter board](https://github.com/nathancharlesjones/Debug-Edge_SWD-to-J-Link-Edu-Mini-adapter-with-USB-power) is acquired, is to save the developer from having to purchase J4 for development with the J-Link Edu Mini, which can save ~$0.50/board (not including tax and shipping). The adapter board mentioned previously also includes a USB connector for powering the MCU (connects directly to VDD and so should not be used when VIN or USB (J5) are also used).
    - The bottom four pins of J2 match the four pins on an ST-Link required to program this MCU. If you want to use these pins and still have them connected to a breadboard, I would recommend soldering extra-long male headers onto these pins (and normal male headers on the rest of J1/2).
 
 ## Pinout
@@ -314,17 +324,15 @@ The pin labels were limited to 2 characters, so I feel like they ended up being 
 Both my original Eagle project files and a design block made from the project files are available (for both the compact and protoboard versions). You should be able to use either to edit the design.
 
 You'll need to following libraries in order for the PCB to display correctly:
-  - [SparkFun]()
-  - [Adafruit]()
-  - [Seeed OPL]()
-  - [USB connector
-  - [STM32]()
+  - [SparkFun](https://github.com/sparkfun/SparkFun-Eagle-Libraries)
+  - [Adafruit](https://github.com/adafruit/Adafruit-Eagle-Library)
+  - [Seeed OPL](https://github.com/Seeed-Studio/OPL_Eagle_Library)
+  - [USB connector](https://componentsearchengine.com/part-view/2172034-1/TE%20Connectivity)
+  - [STM32F103C8T6](https://app.ultralibrarian.com/details/BD9A5901-10A2-11E9-AB3A-0A3560A4CCCC/STMicroelectronics/STM32F103C8T6?ref=digikey)
   - crystal-geyer_V1_0 (for the two oscillators; built-in Eagle library)
-  - [Debug Edge connector]()
+  - [Debug Edge connector](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/tree/main/libraries)
 
 The only part of the layout which may be critical are the USB DP and DM traces. Based on [this appnote](https://github.com/nathancharlesjones/STM32F103C8T6-breakout-board/blob/main/References/AN4879_USB-hardware-and-PCB-guidelines-using-STM32-MCUs.pdf), it seems like they should be length-matched, which I was able to accomplish by adding a meander to DP (the squiggly part of the trace just above the USB connector). This doesn't include the short jog that each trace makes to the header pins on the left side of the PCB.
-
-Parts of the datasheet and hardware design manual that disagree??
 
 # References
 - [STM32F103C8 product page](https://www.st.com/en/microcontrollers-microprocessors/stm32f103c8.html)
