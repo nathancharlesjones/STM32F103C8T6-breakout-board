@@ -83,7 +83,7 @@
   - [ ] ST-Link
   - [ ] J-link
   - [ ] Debug Edge
-  - [ ] Bootloader, J5
+  - [x] Bootloader, J5
   - [ ] Bootloader, "USB breakout", Female headers
   - [ ] Bootloader, "USB breakout", Breadboard
   - [ ] USB serial, J5
@@ -92,9 +92,9 @@
   - [ ] VIN
 - [x] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [ ] Update protoboard
-  - [ ] Add new design block
-  - [ ] Move J5/J3
-  - [ ] Check silkscreen
+  - [x] Add new design block
+  - [x] Move J5/J3
+  - [x] Check silkscreen
   - [ ] Update images
 - [x] Double-check compact board rules and silkscreen text
 - [x] Find new 3.3V/5V regulators (higher input voltage)?
@@ -113,11 +113,16 @@
 - [x] Change 0402 to tighter 0402
 - [x] Check if 1.0mm slot will work
 - [x] Update slot to 1.0mm? -> Not unless I have to. Wiggle room is 0mm under worst-case conditions.
-- [ ] Update things with new gerbers
-  - [ ] Take new screenshots
-  - [ ] Add 1.0mm slot to Debug Edge library
-  - [ ] Update design block
-  - [ ] Update schematic image
+- [x] Update things with new gerbers
+  - [x] Take new screenshots
+    - [x] Top screenshot
+    - [x] Bottom screenshot
+    - [x] Flip bottom screenshot
+  - [x] Add 1.0mm slot to Debug Edge library
+  - [x] Update design block
+  - [x] Update schematic image
+    - [x] Get new PDF
+    - [x] Convert PDF to PNG
 - [x] Add xls pin compatible list
 - [x] Check parts with MOQ > 10
 - [x] Add notes to JLCPCB pin compatible list
