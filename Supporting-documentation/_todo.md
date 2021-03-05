@@ -91,11 +91,11 @@
   - [ ] USB serial, "USB breakout", Breadboard
   - [ ] VIN
 - [x] Double-check pin-compatible MCUs (CubeMX lies!!!)
-- [ ] Update protoboard
+- [x] Update protoboard
   - [x] Add new design block
   - [x] Move J5/J3
   - [x] Check silkscreen
-  - [ ] Update images
+  - [x] Update images
 - [x] Double-check compact board rules and silkscreen text
 - [x] Find new 3.3V/5V regulators (higher input voltage)?
 - [x] Order
