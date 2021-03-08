@@ -128,7 +128,6 @@
 - [x] Add notes to JLCPCB pin compatible list
 - [x] Update list of recommended alternatives
 - [x] Edit pin compatible section (should say: here are the pin compatible MCUs that are available on JLC PCB, add $2 to the Qty:10 price to get the cost per board for a minimum configuration, etc)
-- [ ] Add pictures of assembled board with extra-long headers and USB breakout
 - [x] Update prices (MCUs, assembly)
 - [x] Rename spreadsheets
 - [x] Possible to make spreadsheets viewable in Git? -> No, but [this tool](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/) handily converts Excel tables into Markdown tables
