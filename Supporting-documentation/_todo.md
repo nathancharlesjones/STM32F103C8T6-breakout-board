@@ -80,16 +80,13 @@
 - [x] Fix clearance issue
   - [x] Update protoboard as well
 - [ ] Test!
-  - [ ] ST-Link
-  - [ ] J-link
-  - [ ] Debug Edge
+  - [x] ST-Link
+  - [x] J-link
+  - [x] Debug Edge
   - [x] Bootloader, J5
-  - [ ] Bootloader, "USB breakout", Female headers
-  - [ ] Bootloader, "USB breakout", Breadboard
+  - [x] Bootloader, "USB breakout", Female headers
   - [ ] USB serial, J5
   - [ ] USB serial, "USB breakout", Female headers
-  - [ ] USB serial, "USB breakout", Breadboard
-  - [ ] VIN
 - [x] Double-check pin-compatible MCUs (CubeMX lies!!!)
 - [x] Update protoboard
   - [x] Add new design block
